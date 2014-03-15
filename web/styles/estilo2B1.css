@@ -1,0 +1,154 @@
+@import url(general.css);
+
+@import url(common.css);
+
+@import url(comp_prime.css);
+
+a, a:hover {
+	text-decoration :underline;
+	color: #f47b33;
+}
+a:hover {
+text-decoration :none;
+}
+
+.p {
+	margin:0px;
+}
+
+.orange {
+	color:#f47b33;
+}
+.green {
+	color:#8f9d4c;
+}
+
+#square {	
+	position:absolute;
+	width:40px;
+	height:40px;
+	left:220px;
+	top:27px;
+}
+
+#orange_square {
+		width:20px;
+		height:20px;
+		background-color:#f47b33;
+		position:absolute;
+		right:-10px;		
+}
+
+#green_square {
+		width:20px;
+		height:20px;
+		background-color:#74be37;
+		position:absolute;
+		left:10px;	
+		bottom:0px;	
+}
+
+
+#name_part_1 {
+
+	margin: 10px 0px 0px 10px;
+	color:#000000;
+	font: 20px Verdana;
+	text-align:left;
+	letter-spacing: 7px;
+}
+
+#name_part_2 {
+	margin: 0px 0px 0px 10px;
+	color:#000000;
+	font: 15px Verdana;
+	text-align:left;
+	letter-spacing: 12px;
+}
+
+#line {
+background:#888888 none repeat scroll 0%;
+font-size:0px;
+height:3px;
+margin-bottom:2px;
+margin-top:2px;
+clear:both;
+    
+}
+
+#header {
+	margin: 5px 0 10px 20px;
+	font-size: 1.5em;
+	letter-spacing: 3px;
+}
+
+body {
+    font: 11px Verdana,Arial,sans-serif;
+    color: #666666;
+    background: url("../images/bg.gif") repeat scroll 0 0 transparent;
+}
+
+#top {
+    height: 12%;
+    position: relative;
+    background-image: url(../images/main_bg7.jpg);
+    padding-top: 10px;
+    padding-bottom: 5px;
+    float: left;
+    width: 99%;
+    margin: 0 auto;
+}
+
+#left_col {
+	width: 19%;
+        height: 75%;
+        margin: 0 auto;
+        background:#FFFFFF none repeat scroll 0%;
+        float: left;
+        position: relative;
+        padding-bottom: 25px;
+        
+}
+
+#right_col {
+	width: 80%;
+        height: 75%;
+        margin: 0 auto;
+        background:#FFFFFF none repeat scroll 0%;
+        padding-top: 25px;
+        float: right;
+        position: relative;
+        text-align: center;
+        padding-bottom: 25px;
+        overflow-y: scroll;
+}
+
+#bottom{
+    height: 13%;
+    position: relative;
+    background-image: url(../images/main_bg7.jpg);
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    float: left;
+    width: 99.5%;
+    margin: 0 auto;
+}
+
+#line1 {
+background:#888888 none repeat scroll 0%;
+font-size:0px;
+height:3px;
+margin-bottom:2px;
+margin-top:2px;
+clear:both;
+    
+}
+
+
+#holder { 
+    width: 1200px;
+    height: 640px;
+    margin: 0 auto;
+    background-image: url(../images/main_bg7.jpg);
+}

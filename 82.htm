@@ -1,0 +1,1757 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+
+	
+	<head>
+		<title>Telecrédito - BCP</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<meta name="keywords" content="EverSystems Informatica Ltda."/>	
+		<link href="/tlcnp/css/style.css" type="text/css" rel="stylesheet"/>
+		<link href="/tlcnp/css/stylePrint.css" type="text/css" rel="stylesheet" media="print" />
+	</head>
+	
+	<script src="/tlcnp/js/jquery-1.9.1.js" ></script>
+	<script src="/tlcnp/js/jquery-ui-1.10.1.custom.min.js" ></script>
+	<script src="/tlcnp/js/jquery_bigframe.js" ></script>
+	<script src="/tlcnp/js/functions.js" ></script>
+	<script src="/tlcnp/js/control.jsp" ></script>
+<body leftmargin="0" topmargin="0" rightmargin="0" onLoad="self.focus();" style="overflow-x: auto;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+	<tr>
+		<td>
+		<TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+		<TR id="mainTRHeader">
+			<TD id="mainTDHeader">
+				
+
+
+
+
+
+
+
+
+
+
+
+<!-- Start Header -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="compHeaderPopUp">
+	<td align="right"><img src="/tlcnp/images/header_popup.gif" alt="" width="380" height="44" border="0"></td>
+</tr>
+</table>
+<!-- End Header -->
+			</TD>
+		</TR>
+		</TABLE>
+		</td>
+	</tr>	
+	<tr>
+		<td>	
+		<TABLE border="0" cellpadding="0" cellspacing="0" width="99%">
+		<TR id="mainTRBody">
+			<TD width="10"><img src="/tlcnp/images/trans.gif" width="10" height="1" alt=""></TD>
+			<TD id="mainTDBody" width="100%">
+				
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	function exportResult(){
+		callExportPage("/tlcnp/exportPage.do?methodToCall=show");
+	}
+	function printResult(){
+		self.print();
+	}
+	function helpContext(){
+		callScreenHelp('');
+	}
+</script>
+
+
+
+	<!-- Conforme definición de la REF: "6.1.5 Definición de tracking" no debe tener traking en las Pop-Ups -->
+	
+	<!-- Start Tracking
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tr class="tracking">
+		<td>&raquo;
+		   
+	        
+	           
+			      <span class="trackingActive" id="txtTrackingActive">Detalle de operación - planilla de proveedores </span>
+	           
+	            
+	        
+        </td>
+	</tr>
+	</table>
+	End Tracking -->	
+	<br>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="title"><span id="txtPageTitle">Detalle de operación - planilla de proveedores </span></td>
+		<td align="right">
+		<span class="noPrint">
+			
+				<span id="btExportPage">
+				
+					<img src="/tlcnp/images/ic_export.gif" width="15" height="13" alt="" border="0"/>
+					
+						
+							<a href="javascript:exportResult()" class="txtIcon">Exportar</a>
+						
+						
+					
+				
+				</span>
+			
+			
+				<span id="btPrintPage">
+				
+					<img src="/tlcnp/images/ic_print.gif" width="15" height="13" alt="" border="0"/>
+					
+						
+							<a href="javascript:self.print();" class="txtIcon">Imprimir</a>
+						
+						
+					
+				
+				</span>
+			
+			
+			</span>
+		</td>
+	</tr>
+	<tr class="line">
+		<td colspan="2"><img src="/tlcnp/images/trans.gif" width="1" height="1" alt="" border="0"/></td>
+	</tr>
+	</table>
+	<br>	
+	<!-- Start Box Message -->
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Start Box Message -->
+
+
+
+	<div id="divBoxMessage" style="display: none">
+		<table border="0" cellspacing="0" cellpadding="2" width="100%">
+			<tr id="trBoxMessage">
+				<td width="15" id="tdBoxImg"></td>
+				<td width="100%" id="tdBoxMessage"></td>
+			</tr>
+		</table>
+	</div>
+
+	
+	<!-- End Box Message -->
+
+
+<!-- Start Form -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+	function closePopup() {
+		var oReq = new ActiveXObject("Microsoft.XMLHTTP");
+		oReq.open("GET", "voucherPaymentMass.do?methodToCall=exportDetailSheet", false);
+		oReq.send();
+		window.close();
+	}
+
+	function showPlus(index, rowLength){
+		for(var i=0; i < rowLength; i++){
+			var row = "row" + index + "_" + i;
+			var obj = document.getElementById(row);
+
+			if(obj.style.display == 'none')
+				obj.style.display = '';
+			else
+				obj.style.display = 'none';
+		}
+		if (document.getElementById("img_"+index).src.indexOf('ic_plus') >= 0 )
+			document.getElementById("img_"+index).src="../images/ic_minus.gif";
+		else
+			document.getElementById("img_"+index).src="../images/ic_plus.gif";
+	}
+
+	function exportDetailSheet(){
+		var oReq = new ActiveXObject("Microsoft.XMLHTTP");
+		oReq.open("GET", "voucherPaymentMass.do?methodToCall=exportDetailSheet", false);
+		oReq.send();
+		window.close();
+	}
+</script>
+
+<body onunload="javascript:exportDetailSheet()"></body>
+
+
+
+
+
+
+
+<!-- Verify if have permissions of "Consulta de detalle SIN MONTO - planilla cualquiera" -->
+
+	
+		
+	
+	
+	
+	
+
+
+
+<!-- Header Begin -->
+<table>
+	<tr>
+	<td class="subTitle" colspan="4">Datos generales:<br><br></td>
+	</tr>
+
+	<tr>
+		<td class="labelFields" nowrap="true">Tipo de operación:</td>
+		<td width="35%">Proveedores</td>
+		
+	</tr>
+	<tr>
+		<td class="labelFields" nowrap="true">Nº planilla:</td>
+		<td width="35%">002813</td>
+		<td class="labelFields" nowrap="true">Fecha de proceso:</td>
+		<td width="35%">18/01/2014</td>
+	</tr>
+</table><br>
+<!-- Header End -->
+<!-- Sheet Detail -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table>
+	
+		<tr>
+			<td class="labelFields" nowrap="true">Referencia de planilla:</td>
+			<td width="35%">RP 2425</td>
+			<td class="labelFields" nowrap="true">Planilla exonerada de ITF:</td>
+			<td width="35%">No</td>
+		</tr>
+		<tr>
+			<td class="labelFields">Cuenta de origen:</td>
+			<td>193-1958110-0-88 -
+			S/.	 -
+			ODEBRECHT PERU ING Y CONS-PROY MUELLE MI</td>
+			<td class="labelFields">Empresa pagadora:</td>
+			<td>ODEBRECHT PERU INGENIERIA Y CONSTRUCCION S.A.C.</td>
+		</tr>
+		<tr>
+			<td class="labelFields">Firmada por:</td>
+			<td colspan="3">
+				VICTOR HUGO BARREDA JARA
+				&nbsp;/&nbsp;HENRY BENE FRANCO NOLASCO
+			</td>
+		</tr>
+	
+	
+	
+	
+</table>
+<br>
+<table>
+	<tr>
+		<td class="labelFields">Resumen de pagos</td>		
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+		<td class="labelFields" nowrap="true">Nº registros:</td>
+		<td width="30%">15</td>
+		<td class="labelFields" nowrap="true">Monto total:</td>
+		<td width="30%">S/. 6,437.24</td>	
+	</tr>
+	<tr>
+		<td class="labelFields">Nº registros procesados:</td>
+		<td width="30%">15</td>
+		<td class="labelFields">Monto registros procesados:</td>
+		<td width="30%">S/. 6,437.24</td>	
+	</tr>
+	<tr>
+		<td class="labelFields">Nº registros rechazados:</td>
+		<td width="30%">0</td>
+		<td class="labelFields">Monto registros rechazados:</td>
+		<td width="30%">S/. 0.00</td>	
+	</tr>
+</table>
+<br>
+
+<!-- End Information Detail -->
+
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="gridCaption">Detalle de la planilla</td>
+</tr>
+</table>
+
+	<table border="0" cellspacing="1" cellpadding="0" width="100%">
+	<tr class="headerGrid">
+		<td rowspan="2"></td>
+		
+			
+				<td colspan="2">Beneficiario</td>
+			
+			
+		
+		<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+		
+			
+				
+				
+					<td rowspan="2" colspan="2">Monto</td>
+				
+			
+			<td rowspan="2">T/C</td>
+			<td rowspan="2" colspan="2">Monto abonado</td>
+		
+		<td colspan="3">Cuenta</td>
+		<td class="gridState" rowspan="2">Estado</td>
+		<td class="gridComment" rowspan="2">Observación</td>
+	</tr>
+	<tr class="headerGrid">
+		<td>Nombre</td>
+		
+			<td>Documento</td>
+		
+		<td>T</td>
+		<td>M</td>
+		<td>Número</td>
+	</tr>
+	
+		
+		
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('0','1');"><img id="img_0" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						1
+					</td>
+					<td >
+						COSMOS AGENCIA MARITIMA S.A.C.                                             
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,824.31</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row0_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000057449</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>1,824.31</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('1','1');"><img id="img_1" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						2
+					</td>
+					<td >
+						INVERSIONES MARITIMAS UNIVERSALES PERU S                                   
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>544.57</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row1_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000153594</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>544.57</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('2','1');"><img id="img_2" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						3
+					</td>
+					<td >
+						MSL DEL PERU S.A.C.                                                        
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>212.40</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row2_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000152768</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>212.40</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('3','1');"><img id="img_3" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						4
+					</td>
+					<td >
+						NEPTUNIA S.A.                                                              
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>254.88</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row3_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000210229</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>254.88</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('4','1');"><img id="img_4" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						5
+					</td>
+					<td >
+						NEPTUNIA S.A.                                                              
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>448.40</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row4_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000211960</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>448.40</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('5','1');"><img id="img_5" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						6
+					</td>
+					<td >
+						TALMA SERVICIOS AEROPORTUARIOS S.A                                         
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>270.73</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row5_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000049656</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>270.73</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('6','1');"><img id="img_6" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						7
+					</td>
+					<td >
+						TRANSLOGISTICS S.A.C.                                                      
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>94.28</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row6_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000011036</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>94.28</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('7','1');"><img id="img_7" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						8
+					</td>
+					<td >
+						TRANSLOGISTICS S.A.C.                                                      
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>548.36</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row7_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000011037</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>548.36</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('8','1');"><img id="img_8" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						9
+					</td>
+					<td >
+						TRANSLOGISTICS S.A.C.                                                      
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>216.29</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row8_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000011038</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>216.29</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('9','1');"><img id="img_9" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						10
+					</td>
+					<td >
+						TRANSLOGISTICS S.A.C.                                                      
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>182.78</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row9_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000011039</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>182.78</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('10','1');"><img id="img_10" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						11
+					</td>
+					<td >
+						TRANSLOGISTICS S.A.C.                                                      
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>149.74</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row10_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000005920</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>149.74</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('11','1');"><img id="img_11" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						12
+					</td>
+					<td >
+						TRANSBER S.A.C.                                                            
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>141.60</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row11_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000096234</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>141.60</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('12','1');"><img id="img_12" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						13
+					</td>
+					<td >
+						TRANSBER S.A.C.                                                            
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>212.40</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row12_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000096235</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>212.40</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('13','1');"><img id="img_13" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						14
+					</td>
+					<td >
+						TRANSBER S.A.C.                                                            
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,194.90</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row13_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000096236</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>1,194.90</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+							
+							
+								<a href="javascript:showPlus('14','1');"><img id="img_14" src="/tlcnp/images/ic_minus.gif" alt="" border="0"></a>
+							
+						
+						15
+					</td>
+					<td >
+						TRANSBER S.A.C.                                                            
+					</td>
+					
+						<td>
+							RUC&nbsp; 20101158927    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>141.60</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>C</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-0515701-0-00</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+					
+						
+							 <tr class="bgColor10" id="row14_0" >
+								<td nowrap></td>
+								<td nowrap>Factura del proveedor </td>
+								<td nowrap>000000000096498</td>
+								
+								<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+								
+									
+										
+										
+											<td nowrap>S/.</td>
+											<td nowrap>141.60</td>
+										
+									
+									<td></td>
+									<td></td>
+									<td></td>
+								
+								<td nowrap></td>
+								<td nowrap></td>
+								<td nowrap></td>
+								<td class="gridState" nowrap></td>
+								<td class="gridComment" nowrap></td>
+							</tr>
+						
+					
+				
+			
+		
+	
+
+</table>
+
+
+<div class="footerButtons" align="right">
+	<input type="button" name="nmbtnClose" value="Cerrar" onclick="closePopup();" class="defaultButton">
+</div>
+
+
+<!-- End Form -->
+
+
+	<!-- End Body -->
+
+			</TD>
+		</TR>
+		</TABLE>
+	</td>
+	</tr>	
+	<tr>
+		<td height="100%" valign="bottom"><TABLE border="0" cellpadding="0" cellspacing="0" width="100%">	
+	
+		<TR id="mainTRFooter">
+			<TD id="mainTDFooter">
+
+
+
+
+
+
+
+
+
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><img src="/tlcnp/images/tringulo_pop.gif" width="47" height="44" alt="" border="0"></td></tr></table></TD>
+		</TR>
+	
+		</TABLE></td>
+	</tr>
+</table>	
+
+</body>
+</html>

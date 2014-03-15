@@ -1,0 +1,45 @@
+
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+    <ui:composition template="../#{applicationController.plan1}">
+    
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form1">
+            <p:growl id="msgs"/>
+            <br/>
+            <span class="titulo">Compra de Licencia</span>
+            <br/>
+
+            <br/>
+            <br/>
+            <p:panelGrid  columns="2"  >
+                <f:facet name="header">
+                    <p:outputLabel value="Genere una nueva licencia "/>
+                </f:facet>
+                
+                <p:outputLabel id="l_usr" value="Email: "/>
+                <p:inputText  id="usr" value=""/>
+                <p:message id="m_usr" for="usr"/>
+                
+                <f:facet name="footer">
+                    <p:commandButton id="reg_button" value="Genere Licencia"  update="@form"/>
+                </f:facet>
+                
+            </p:panelGrid>
+            <br/>
+
+            
+        </h:form>
+        </div>
+    </ui:define>
+
+  </ui:composition>
+</f:view>
+</html>
+

@@ -1,0 +1,84 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+  <ui:composition template="../#{applicationController.plan3}">
+
+    <ui:define name="contenido">
+        <h:form id="form">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Plantilla1"/>
+                <p:selectOneMenu  value="#{applicationController.plan1}">
+                    <p:ajax update="@form"/>
+                    <f:selectItems value="#{applicationController.plantillas}" />  
+                </p:selectOneMenu>
+                
+                <p:outputLabel value="Plantilla2"/>
+                <p:selectOneMenu value="#{applicationController.plan2}">
+                    <p:ajax update="@form"/>
+                    <f:selectItems value="#{applicationController.plantillas}" />  
+                </p:selectOneMenu>
+                
+                <p:outputLabel value="Plantilla3"/>
+                <p:selectOneMenu value="#{applicationController.plan3}">
+                    <p:ajax update="@form"/>
+                    <f:selectItems value="#{applicationController.plantillas}" />  
+                </p:selectOneMenu>
+                
+                
+                <p:outputLabel value="Estilo Plantilla A1"/>
+                <p:selectOneMenu  value="#{applicationController.estiloA1}">
+                    <p:ajax update="@form"/>
+                    <f:selectItem itemLabel="Bluesky" itemValue="estilo1A1.css" />  
+                </p:selectOneMenu>
+                
+                <p:outputLabel value="Estilo Plantilla A2"/>
+                <p:selectOneMenu  value="#{applicationController.estiloA2}">
+                    <p:ajax update="@form"/>
+                    <f:selectItem itemLabel="Bluesky" itemValue="estilo3A2.css" />  
+                    <f:selectItem itemLabel="Orange" itemValue="estilo1A2.css" />  
+                    <f:selectItem itemLabel="Green" itemValue="estilo2A2.css" />  
+                </p:selectOneMenu>
+                
+                <p:outputLabel value="Estilo Plantilla B1"/>
+                <p:selectOneMenu  value="#{applicationController.estiloB1}">
+                    <p:ajax update="@form"/>
+                    <f:selectItem itemLabel="Bluesky" itemValue="estilo3B1.css" />  
+                    <f:selectItem itemLabel="Orange" itemValue="estilo1B1.css" />  
+                    <f:selectItem itemLabel="Green" itemValue="estilo2B1.css" /> 
+                </p:selectOneMenu>
+                
+                <p:outputLabel value="Estilo Plantilla B2"/>
+                <p:selectOneMenu  value="#{applicationController.estiloB2}">
+                    <p:ajax update="@form"/>
+                    <f:selectItem itemLabel="Bluesky" itemValue="estilo1B2.css" />  
+                </p:selectOneMenu>
+                
+                <p:outputLabel value="Estilo Plantilla C1"/>
+                <p:selectOneMenu  value="#{applicationController.estiloC1}">
+                    <p:ajax update="@form"/>
+                    <f:selectItem itemLabel="Bluesky" itemValue="estilo1A1.css" />  
+                </p:selectOneMenu>
+
+                <p:outputLabel value="Tema"/>
+                <p:themeSwitcher style="width:165px" id="defaultSwitcher" value="#{applicationController.theme}" valueChangeListener="#{applicationController.cambiarTema}">  
+                    <p:ajax/>
+                    <f:selectItem itemLabel="Seleccione Tema" itemValue="" />  
+                    <f:selectItems value="#{applicationController.themes}" />  
+                </p:themeSwitcher>  
+
+                
+                
+                <f:facet name="footer">
+                    <p:commandButton action="#{applicationController.cambiarLookandfeel}" ajax="False" icon="ui-icon-check" value="Cambiar"/>
+                </f:facet>
+            </p:panelGrid>
+        </h:form>
+   </ui:define>
+
+  </ui:composition>
+</f:view>
+</html>

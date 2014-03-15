@@ -1,0 +1,45 @@
+
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+    <ui:composition template="../#{applicationController.plan1}">
+    
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form1">
+            <p:growl id="msgs"/>
+            <span class="titulo">Activación Usuario:</span>
+            <br/>
+            <p:outputLabel value="Su nro usuario fue enviado a su e-mail "/>
+            <br/>
+            <p:panelGrid  columns="3" >
+                <p:outputLabel value="Nro Usuario "/>
+                <p:inputText  id="nro_usuario" value="#{registroController.nroUsuario}" validatorMessage="Sólo números!">
+                    <f:validateRegex pattern="\d+" />
+                </p:inputText>
+                <p:message for="nro_usuario"/>
+                <f:facet name="footer">
+                    <p:commandButton id="reg_button" value="Activar" action="#{registroController.activar}" ajax="false"/>
+                </f:facet>
+            </p:panelGrid>
+            <br/>
+            <br/>
+            <p:panel rendered="#{registroController.activado}" header="">
+               <h:outputLabel value="#{registroController.mensaje}" style="color: blue; text-align: justify"/> 
+               <br/>
+               <h:link value="Ingrese al Sistema" outcome="/index.jsp"/>
+            </p:panel>
+            
+            
+        </h:form>
+        </div>
+    </ui:define>
+
+  </ui:composition>
+</f:view>
+</html>
+

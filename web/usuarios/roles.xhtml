@@ -1,0 +1,69 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+<ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+        <div style="height: 1000px">
+        <h:form id="form" >
+            <p:growl id="msgs" />
+            <h:inputHidden id="id" value="#{rolesController.rol.id}"/>
+            <p:panel header="Datos del Rol">
+                <p:panelGrid id="form_rol" columns="3">
+                    <h:outputLabel for="nombre" value="Nombre: *" />
+                    <p:inputText id="nombre" value="#{rolesController.rol.codigo}" required="true" />
+                    <p:message for="nombre"/>
+
+                    <h:outputLabel for="descripcion" value="Descripción:" />
+                    <p:inputText id="descripcion" value="#{rolesController.rol.descripcion}" />
+                    <p:message for="descripcion"/>
+
+
+                    <h:outputLabel value="Recursos:" />
+                    <p:dataGrid id="grupos_rol" var="rec" value="#{rolesController.recursos}"
+                                columns="#{rolesController.gridColumnasRec}"
+                                rows="#{rolesController.gridFilasRec}">
+                        <p:column>
+                            <p:selectBooleanCheckbox value="#{rec.addRol}" />
+                            <h:outputText value="#{rec.nombre}"/>
+                        </p:column>
+                    </p:dataGrid>
+                    <p:message for="grupos_rol"/>
+                    <f:facet name="footer">
+                        <p:commandButton value="Guardar" update="@form" action="#{rolesController.guardar}" ajax="true"/>
+                    </f:facet>
+                </p:panelGrid>
+            </p:panel>
+
+            <br/>
+
+            <p:outputPanel id="roles">
+                <p:commandButton update="@form" actionListener="#{rolesController.nuevo}" icon="ui-icon-document" value="Crear"/>
+                <p:dataTable value="#{rolesController.roles}" var="rol"
+                             paginator="true"
+                             rows="10"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                             paginatorPosition="top"
+                             paginatorAlwaysVisible="false">
+                    <p:column headerText="Rol">
+                        <h:outputText value="#{rol.codigo}"/>
+                    </p:column>
+                    <p:column headerText="Borrar">
+                        <p:commandButton update=":form:roles :form:msgs"  process="@this" actionListener="#{rolesController.borrar(rol)}" icon="ui-icon-trash"/>
+                    </p:column>
+                    <p:column headerText="Actualizar">
+                        <p:commandButton update="@form"  process="@this" actionListener="#{rolesController.actualizar(rol)}" icon="ui-icon-pencil" />
+                    </p:column>
+                </p:dataTable>
+            </p:outputPanel>
+
+        </h:form>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+

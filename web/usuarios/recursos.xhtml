@@ -1,0 +1,78 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+<ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form" >
+            <h:inputHidden id="id" value="#{recursosController.recurso.id}"/>
+            <p:growl id="msgs" />
+            <p:panel header="Datos del Recurso">
+            <p:panelGrid columns="3" id="form_recurso">
+                <h:outputLabel for="nombre" value="Nombre: *" />
+                <p:inputText id="nombre" value="#{recursosController.recurso.nombre}" required="true" />
+                <p:message for="nombre"/>
+
+                <h:outputLabel for="descripcion" value="Descripción: " />
+                <p:inputText id="descripcion" value="#{recursosController.recurso.descripcion}"  />
+                <p:message for="descripcion"/>
+
+                <h:outputLabel for="url" value="URL: *" />
+                <p:inputText id="url" value="#{recursosController.recurso.url}" required="true"/>
+                <p:message for="url"/>
+
+                <h:outputLabel for="menu" value="Menú:" />
+                <p:selectOneMenu id="menu" value="#{recursosController.recurso.menu.id}">
+                    <f:selectItems  value="#{recursosController.menus}" />
+                </p:selectOneMenu>
+                <p:message for="menu"/>
+                
+                <h:outputLabel for="idioma" value="Idioma:" />
+                <h:selectOneMenu id="idioma" value="#{recursosController.recurso.idioma}">
+                    <f:selectItems  value="#{recursosController.idiomas}" />
+                </h:selectOneMenu>
+                <p:message for="idioma"/>
+
+                <f:facet name="footer">
+                    <p:commandButton value="Guardar" update="@form"  action="#{recursosController.guardar}" ajax="true">
+                    </p:commandButton>
+                </f:facet>
+            </p:panelGrid>
+            </p:panel>
+            <br/>
+            <p:outputPanel id="recursos">
+                <p:commandButton update="@form" actionListener="#{recursosController.nuevo}" value="Crear" icon="ui-icon-document"/>
+                <p:dataTable value="#{recursosController.recursos}" var="recurso"
+                             paginator="true"
+                             rows="10"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                             paginatorPosition="top"
+                             paginatorAlwaysVisible="false">
+                    <p:column headerText="Nombre">
+                        <h:outputText value="#{recurso.nombre}"/>
+                    </p:column>
+                    <p:column headerText="URL">
+                        <h:outputText value="#{recurso.url}"/>
+                    </p:column  >
+                    <p:column headerText="Menu">
+                        <h:outputText value="#{recurso.menu.nombre}"/>
+                    </p:column>
+                    <p:column headerText="Borrar">
+                        <p:commandButton icon="ui-icon-trash" update=":form:recursos :form:msgs"  process="@this" actionListener="#{recursosController.borrar(recurso)}"/>
+                    </p:column>
+                    <p:column headerText="Actualizar">
+                        <p:commandButton update="@form"  process="@this" actionListener="#{recursosController.actualizar(recurso)}" icon="ui-icon-pencil"/>
+                    </p:column>
+                </p:dataTable>
+            </p:outputPanel>
+        </h:form>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+

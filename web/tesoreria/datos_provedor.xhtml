@@ -1,0 +1,122 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     >
+    <f:view>
+        <ui:composition template="../#{applicationController.plan3}">
+            <ui:define name="contenido">
+                
+                <br/>
+                <span class="titulo">Señor Provedor, Actualice sus Datos!</span>
+                <br/>
+               <h:form id="form" prependId="false">
+                    <p:messages id="msgs" />  
+                    <p:panelGrid style="margin-top:20px">
+                        <f:facet name="header">  
+                            <p:row>  
+                                <p:column colspan="4">Información del del Proveedor</p:column>  
+                            </p:row>  
+                        </f:facet>  
+                        <p:row>
+                            <p:column><h:outputLabel  value="RUC:" /></p:column>
+                            <p:column>
+                                <p:inputText id="ruc" value="#{provedorController.provedor.ruc}" disabled="#{provedorController.disableRuc}">
+                                    <p:ajax update="@form" listener="#{provedorController.consultarProvedor}"/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="ruc"/></p:column>
+                            <p:column><p:watermark value="" for="ruc"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="Razón Social:" /></p:column>
+                            <p:column>
+                                <p:inputText id="raz" value="#{provedorController.provedor.razonSocial}">
+                                    <p:ajax/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="raz"/></p:column>
+                            <p:column><p:watermark value="Digite su razón social igual a como está en SUNAT" for="raz"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="No Cuenta de Detracción:" /></p:column>
+                            <p:column>
+                                <p:inputText id="no_cuenta_detra" value="#{provedorController.provedor.noCuentaDetraccion}">
+                                    <p:ajax/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="no_cuenta_detra"/></p:column>
+                            <p:column><p:watermark value="Digite el no cuenta de detracción del Banco de la Nación" for="no_cuenta_detra"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="Persona de Contacto:" /></p:column>
+                            <p:column>
+                                <p:inputText id="persona" value="#{provedorController.provedor.personaContacto}">
+                                    <p:ajax/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="persona"/></p:column>
+                            <p:column><p:watermark value="" for="persona"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="Telefono Fijo:" /></p:column>
+                            <p:column>
+                                <p:inputText id="fijo" value="#{provedorController.provedor.telefonoFijo}">
+                                    <p:ajax/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="fijo"/></p:column>
+                            <p:column><p:watermark value="" for="fijo"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="Telefono Celular:" /></p:column>
+                            <p:column>
+                                <p:inputText id="movil" value="#{provedorController.provedor.telefonoCelular}">
+                                    <p:ajax/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="movil"/></p:column>
+                            <p:column><p:watermark value="" for="movil"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="Correo Electrónico:" /></p:column>
+                            <p:column>
+                                <p:inputText id="mail" value="#{provedorController.provedor.email}">
+                                    <p:ajax/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="mail"/></p:column>
+                            <p:column><p:watermark value="" for="mail"/></p:column>
+                        </p:row>
+                        <f:facet name="footer">
+                            <p:row>  
+                                <p:column colspan="4"><p:commandButton value="Guardar" action="#{provedorController.guardar}" update="@form"/></p:column>  
+                            </p:row> 
+                        </f:facet>
+                    </p:panelGrid>
+                    <br/>
+                    <p:panel id="cuentas" header="Cuentas del Proveedor">
+                        <p:commandButton ajax="false" action="#{provedorController.goCuenta}" value="Agregar Cuenta"/>
+                        <p:dataTable value="#{provedorController.provedor.cuentas}" var="cuenta">
+                            <p:column headerText="Cuenta">
+                                <h:outputText value="#{cuenta.noCuenta}"/>
+                            </p:column>
+                            <p:column headerText="Moneda">
+                                <h:outputText value="#{cuenta.moneda}"/>
+                            </p:column>
+                            <p:column headerText="Borrar">
+                                <p:commandButton update="@form" actionListener="#{provedorController.borrarCuenta(cuenta)}"  icon="ui-icon-trash"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
+
+                
+            </ui:define>
+        </ui:composition>
+    </f:view>
+
+</html>

@@ -1,0 +1,174 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     >
+    <f:view>
+    <ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+
+        <br/>
+        <span class="titulo">Señor Provedor, Ingrese información de su factura</span>
+        <br/>
+
+
+       <h:form id="form" prependId="false">
+
+
+            <p:messages id="msgs" />  
+
+            <h:link rendered="#{facturaController.solicitarActualizacion}"  
+                    outcome="/tesoreria/datos_provedor.xhtml"/>
+            <br/>
+            <p:panelGrid style="margin-top:20px" rendered="#{!facturaController.solicitarActualizacion}">
+                <f:facet name="header">  
+                    <p:row>  
+                        <p:column colspan="4">Información de la Factura</p:column>  
+                    </p:row>  
+                </f:facet>  
+                <p:row>
+                    <p:column><h:outputLabel  value="RUC:" /></p:column>
+                    <p:column>
+                        <p:inputText id="ruc" value="#{facturaController.provedor.ruc}" disabled="#{facturaController.disableRuc}">
+                            <p:ajax update="@form" listener="#{facturaController.consultarProvedor}"/>
+                        </p:inputText>
+                    </p:column>
+                    <p:column><p:message for="ruc"/></p:column>
+                    <p:column><p:watermark value="" for="ruc"/></p:column>
+                </p:row>
+                <p:row>
+                    <p:column><h:outputLabel  value="Razón Social:" /></p:column>
+                    <p:column>
+                        <p:inputText id="raz" value="#{facturaController.provedor.razonSocial}" disabled="true">
+                            <p:ajax/>
+                        </p:inputText>
+                    </p:column>
+                    <p:column><p:message for="raz"/></p:column>
+                    <p:column><p:watermark value="" for="raz"/></p:column>
+                </p:row>
+                
+                
+                <p:row>
+                    <p:column><h:outputLabel  value="Acuerdo de Pago:"/></p:column>
+                    <p:column>
+                        <h:selectOneMenu id="acuerdo" value="#{facturaController.factura.acuerdoPago.id}">
+                            <p:ajax update="@form"/>
+                            <f:selectItems  value="#{facturaController.acuerdos}"/>
+                        </h:selectOneMenu>
+                    </p:column>
+                    <p:column><p:message for="acuerdo"/></p:column>
+                    <p:column><p:watermark value="Seleccione..." for="acuerdo"/></p:column>
+                </p:row>
+                
+                <p:row>
+                    <p:column><h:outputLabel  value="Rubro:"/></p:column>
+                    <p:column>
+                        <h:selectOneMenu id="rubro" value="#{facturaController.factura.concepto.id}">
+                            <p:ajax update="@form"/>
+                            <f:selectItems  value="#{facturaController.conceptos}"/>
+                        </h:selectOneMenu>
+                    </p:column>
+                    <p:column><p:message for="rubro"/></p:column>
+                    <p:column><p:watermark value="Seleccione..." for="rubro"/></p:column>
+                </p:row>
+                
+                <p:row>
+                    <p:column><h:outputLabel  value="No Cuenta:"/></p:column>
+                    <p:column>
+                        <h:selectOneMenu id="cuenta" value="#{facturaController.factura.cuentaProveedor.id}">
+                            <p:ajax update="@form"/>
+                            <f:selectItems  value="#{facturaController.cuentas}"/>
+                        </h:selectOneMenu>
+                    </p:column>
+                    <p:column><p:message for="cuenta"/></p:column>
+                    <p:column><p:watermark value="Seleccione..." for="cuenta"/></p:column>
+                </p:row>
+                
+                <p:row>
+                    <p:column><h:outputLabel  value="Fecha de Emisión:  "/></p:column>
+                    <p:column>
+                        <p:calendar id="fechaemision" value="#{facturaController.factura.fechaEmisionFact}" required="true" pattern="yyyy-MM-dd">
+                            <p:ajax event="dateSelect"/>
+                        </p:calendar>
+                    </p:column>
+                    <p:column><p:message for="fechaemision"/></p:column>
+                    <p:column><p:watermark value="Seleccione..." for="fechaemision"/></p:column>
+                </p:row>
+                
+                <p:row>
+                    <p:column><h:outputLabel  value="Fecha de Entrega a Empresa:  "/></p:column>
+                    <p:column>
+                        <p:calendar id="fechaentrega" value="#{facturaController.factura.fechaEntregaFact}" required="true" pattern="yyyy-MM-dd">
+                            <p:ajax event="dateSelect"/>
+                        </p:calendar>
+                    </p:column>
+                    <p:column><p:message for="fechaentrega"/></p:column>
+                    <p:column><p:watermark value="Seleccione..." for="fechaentrega"/></p:column>
+                </p:row>
+                
+                
+                <p:row>
+                    <p:column><h:outputLabel  value="No de Factura o Boleta:" /></p:column>
+                    <p:column>
+                        <p:inputText id="no_factura" required="true" value="#{facturaController.factura.noFactura}" validatorMessage="El formato valido ej: 00001-0001547 (Rellene con ceros a la izquierda, serie y numero)">
+                            <f:validateRegex pattern="\s*(\d{5}-\d{7})\s*"/>
+                            <p:ajax/>
+                        </p:inputText>
+                    </p:column>
+                    <p:column><p:message for="no_factura"/></p:column>
+                    <p:column><p:watermark value="Ejemplo: 00001-0004587" for="no_factura"/></p:column>
+                </p:row>
+                
+                <p:row>
+                    <p:column><h:outputLabel  value="Monto:" /></p:column>
+                    <p:column>
+                        <p:inputText id="monto" required="true" value="#{facturaController.factura.montoTotal}" validatorMessage="El formato valido ej: 500.00">
+                            <f:validateDoubleRange/>
+                            <p:ajax/>
+                        </p:inputText>
+                    </p:column>
+                    <p:column><p:message for="monto"/></p:column>
+                    <p:column><p:watermark value="Ejemplo: 500.00" for="monto"/></p:column>
+                </p:row>
+                
+                <p:row id="rimg">
+                    <p:column>
+                        <h:outputLabel  value="Cargar Soporte en PDF:"/>
+                    </p:column>
+                    <p:column>
+                        <p:commandButton id="img1" title="Cargar" value="Cargar" icon="ui-icon-arrowthickstop-1-n" oncomplete="dlg_img.show()"/>
+                    </p:column>
+                    <p:column><p:message for="img1"/></p:column>
+                    <p:column><p:message for="img1"/></p:column>
+                </p:row>
+                <f:facet name="footer">
+                    <p:row>  
+                        <p:column colspan="4"><p:commandButton value="Guardar" action="#{facturaController.guardar}" update="@form"/></p:column>  
+                    </p:row> 
+                    
+                </f:facet>
+            </p:panelGrid>
+            <br/>
+        </h:form>
+        <p:dialog widgetVar="dlg_img" modal="true" showEffect="fade" hideEffect="explode" width="780" height="300">
+            <h:form id="form1" enctype="multipart/form-data">
+                <p:panel header="Cargar Imagen - Tamaño máximo 1M">
+                    <p:panelGrid columns="2">
+                        <h:outputLabel value="Cargar"/>
+                        <p:fileUpload fileUploadListener="#{facturaController.cargarSoporte}" 
+                                      mode="advanced"  auto="true"
+                                        allowTypes="/(\.|\/)(pdf)$/" sizeLimit="500000"
+                                        label="Seleccionar" oncomplete="dlg_img.hide()"/> 
+                    </p:panelGrid>
+                </p:panel>
+            </h:form>
+        </p:dialog>
+
+    </ui:define>
+    </ui:composition>
+    </f:view>
+
+</html>

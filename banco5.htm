@@ -1,0 +1,4601 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+
+	
+	<head>
+		<title>Telecrédito - BCP</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<meta name="keywords" content="EverSystems Informatica Ltda."/>	
+		<link href="/tlcnp/css/style.css" type="text/css" rel="stylesheet"/>
+		<link href="/tlcnp/css/stylePrint.css" type="text/css" rel="stylesheet" media="print" />
+	</head>
+	
+	<script src="/tlcnp/js/jquery-1.9.1.js" ></script>
+	<script src="/tlcnp/js/jquery-ui-1.10.1.custom.min.js" ></script>
+	<script src="/tlcnp/js/jquery_bigframe.js" ></script>
+	<script src="/tlcnp/js/functions.js" ></script>
+	<script src="/tlcnp/js/control.jsp" ></script>
+<body leftmargin="0" topmargin="0" rightmargin="0" onLoad="self.focus();" style="overflow-x: auto;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+	<tr>
+		<td>
+		<TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+		<TR id="mainTRHeader">
+			<TD id="mainTDHeader">
+				
+
+
+
+
+
+
+
+
+
+
+
+<!-- Start Header -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="compHeaderPopUp">
+	<td align="right"><img src="/tlcnp/images/header_popup.gif" alt="" width="380" height="44" border="0"></td>
+</tr>
+</table>
+<!-- End Header -->
+			</TD>
+		</TR>
+		</TABLE>
+		</td>
+	</tr>	
+	<tr>
+		<td>	
+		<TABLE border="0" cellpadding="0" cellspacing="0" width="99%">
+		<TR id="mainTRBody">
+			<TD width="10"><img src="/tlcnp/images/trans.gif" width="10" height="1" alt=""></TD>
+			<TD id="mainTDBody" width="100%">
+				
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	function exportResult(){
+		callExportPage("/tlcnp/exportPage.do?methodToCall=show");
+	}
+	function printResult(){
+		self.print();
+	}
+	function helpContext(){
+		callScreenHelp('');
+	}
+</script>
+
+
+
+	<!-- Conforme definición de la REF: "6.1.5 Definición de tracking" no debe tener traking en las Pop-Ups -->
+	
+	<!-- Start Tracking
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tr class="tracking">
+		<td>&raquo;
+		   
+	        
+	           
+			      <span class="trackingActive" id="txtTrackingActive">Detalle de operación - planilla de haberes </span>
+	           
+	            
+	        
+        </td>
+	</tr>
+	</table>
+	End Tracking -->	
+	<br>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="title"><span id="txtPageTitle">Detalle de operación - planilla de haberes </span></td>
+		<td align="right">
+		<span class="noPrint">
+			
+				<span id="btExportPage">
+				
+					<img src="/tlcnp/images/ic_export.gif" width="15" height="13" alt="" border="0"/>
+					
+						
+							<a href="javascript:exportResult()" class="txtIcon">Exportar</a>
+						
+						
+					
+				
+				</span>
+			
+			
+				<span id="btPrintPage">
+				
+					<img src="/tlcnp/images/ic_print.gif" width="15" height="13" alt="" border="0"/>
+					
+						
+							<a href="javascript:self.print();" class="txtIcon">Imprimir</a>
+						
+						
+					
+				
+				</span>
+			
+			
+			</span>
+		</td>
+	</tr>
+	<tr class="line">
+		<td colspan="2"><img src="/tlcnp/images/trans.gif" width="1" height="1" alt="" border="0"/></td>
+	</tr>
+	</table>
+	<br>	
+	<!-- Start Box Message -->
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Start Box Message -->
+
+
+
+	<div id="divBoxMessage" style="display: none">
+		<table border="0" cellspacing="0" cellpadding="2" width="100%">
+			<tr id="trBoxMessage">
+				<td width="15" id="tdBoxImg"></td>
+				<td width="100%" id="tdBoxMessage"></td>
+			</tr>
+		</table>
+	</div>
+
+	
+	<!-- End Box Message -->
+
+
+<!-- Start Form -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+	function closePopup() {
+		var oReq = new ActiveXObject("Microsoft.XMLHTTP");
+		oReq.open("GET", "voucherPaymentMass.do?methodToCall=exportDetailSheet", false);
+		oReq.send();
+		window.close();
+	}
+
+	function showPlus(index, rowLength){
+		for(var i=0; i < rowLength; i++){
+			var row = "row" + index + "_" + i;
+			var obj = document.getElementById(row);
+
+			if(obj.style.display == 'none')
+				obj.style.display = '';
+			else
+				obj.style.display = 'none';
+		}
+		if (document.getElementById("img_"+index).src.indexOf('ic_plus') >= 0 )
+			document.getElementById("img_"+index).src="../images/ic_minus.gif";
+		else
+			document.getElementById("img_"+index).src="../images/ic_plus.gif";
+	}
+
+	function exportDetailSheet(){
+		var oReq = new ActiveXObject("Microsoft.XMLHTTP");
+		oReq.open("GET", "voucherPaymentMass.do?methodToCall=exportDetailSheet", false);
+		oReq.send();
+		window.close();
+	}
+</script>
+
+<body onunload="javascript:exportDetailSheet()"></body>
+
+
+
+
+
+
+
+<!-- Verify if have permissions of "Consulta de detalle SIN MONTO - planilla cualquiera" -->
+
+	
+	
+		
+	
+	
+	
+
+
+
+<!-- Header Begin -->
+<table>
+	<tr>
+	<td class="subTitle" colspan="4">Datos generales:<br><br></td>
+	</tr>
+
+	<tr>
+		<td class="labelFields" nowrap="true">Tipo de operación:</td>
+		<td width="35%">Haberes</td>
+		
+			<td class="labelFields" nowrap="true">Subtipo:</td>
+			<td width="35%">
+				
+					
+					
+						5ta. Categoría - Exonerado de ITF
+					
+				
+			</td>
+		
+	</tr>
+	<tr>
+		<td class="labelFields" nowrap="true">Nº planilla:</td>
+		<td width="35%">002782</td>
+		<td class="labelFields" nowrap="true">Fecha de proceso:</td>
+		<td width="35%">15/01/2014</td>
+	</tr>
+</table><br>
+<!-- Header End -->
+<!-- Sheet Detail -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table>
+	
+	
+	
+		<tr>
+			<td class="labelFields" nowrap="true">Referencia de planilla:</td>
+			<td width="35%">RP 2417</td>
+			<td class="labelFields">Cuenta de origen:</td>
+			<td>193-1958110-0-88 -
+			S/. -
+			ODEBRECHT PERU ING Y CONS-PROY MUELLE MI</td>
+		</tr>
+		<tr>
+			<td class="labelFields">Empresa pagadora:</td>
+			<td>ODEBRECHT PERU INGENIERIA Y CONSTRUCCION S.A.C.</td>
+			<td class="labelFields">Firmada por:</td>
+			<td colspan="3">
+				VICTOR HUGO BARREDA JARA
+				&nbsp;/&nbsp;HENRY BENE FRANCO NOLASCO
+			</td>
+		</tr>
+	
+	
+</table>
+<br>
+<table>
+	<tr>
+		<td class="labelFields">Resumen de pagos</td>		
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+		<td class="labelFields" nowrap="true">Nº registros:</td>
+		<td width="30%">77</td>
+		<td class="labelFields" nowrap="true">Monto total:</td>
+		<td width="30%">S/. 62,182.00</td>	
+	</tr>
+	<tr>
+		<td class="labelFields">Nº registros procesados:</td>
+		<td width="30%">77</td>
+		<td class="labelFields">Monto registros procesados:</td>
+		<td width="30%">S/. 62,182.00</td>	
+	</tr>
+	<tr>
+		<td class="labelFields">Nº registros rechazados:</td>
+		<td width="30%">0</td>
+		<td class="labelFields">Monto registros rechazados:</td>
+		<td width="30%">S/. 0.00</td>	
+	</tr>
+</table>
+<br>
+
+<!-- End Information Detail -->
+
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="gridCaption">Detalle de la planilla</td>
+</tr>
+</table>
+
+	<table border="0" cellspacing="1" cellpadding="0" width="100%">
+	<tr class="headerGrid">
+		<td rowspan="2"></td>
+		
+			
+				<td colspan="2">Beneficiario</td>
+			
+			
+		
+		<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+		
+			
+				
+				
+					<td rowspan="2" colspan="2">Monto</td>
+				
+			
+			<td rowspan="2">T/C</td>
+			<td rowspan="2" colspan="2">Monto abonado</td>
+		
+		<td colspan="3">Cuenta</td>
+		<td class="gridState" rowspan="2">Estado</td>
+		<td class="gridComment" rowspan="2">Observación</td>
+	</tr>
+	<tr class="headerGrid">
+		<td>Nombre</td>
+		
+			<td>Documento</td>
+		
+		<td>T</td>
+		<td>M</td>
+		<td>Número</td>
+	</tr>
+	
+		
+		
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						1
+					</td>
+					<td >
+						RAMOS IDROGO JOSE GABRIEL                                                  
+					</td>
+					
+						<td>
+							DNI&nbsp;    25751485    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-26504936-0-61</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						2
+					</td>
+					<td >
+						MENESES GIL CESAR                                                          
+					</td>
+					
+						<td>
+							DNI&nbsp;    40094100    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23146465-0-66</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						3
+					</td>
+					<td >
+						PIZARRO HUAYTALLA EDGAR                                                    
+					</td>
+					
+						<td>
+							DNI&nbsp;    09592510    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-19282510-0-82</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						4
+					</td>
+					<td >
+						MEDINA NEYRA ULISES ALBERTO                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    25568330    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>810.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23103296-0-61</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						5
+					</td>
+					<td >
+						MEJIA GUTIERREZ MILTON ADRIAN                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    25860268    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23103301-0-67</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						6
+					</td>
+					<td >
+						DIAZ GARCIA DARWIN YOEL                                                    
+					</td>
+					
+						<td>
+							DNI&nbsp;    42174189    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23103248-0-13</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						7
+					</td>
+					<td >
+						ROMERO GARCIA SERGIO ROBINSON                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    40552155    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23103320-0-86</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						8
+					</td>
+					<td >
+						GUTIERREZ MINCHOLA ALEJANDRO ENRIQUE                                       
+					</td>
+					
+						<td>
+							DNI&nbsp;    08205402    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-19222197-0-59</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						9
+					</td>
+					<td >
+						CISNEROS MOSCOL JORGE LUIS                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    46438909    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23199677-0-15</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						10
+					</td>
+					<td >
+						ROBLES VACA MANUEL WALTER                                                  
+					</td>
+					
+						<td>
+							DNI&nbsp;    42082464    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23330699-0-61</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						11
+					</td>
+					<td >
+						CANO ZUNIGA ISIDORO                                                        
+					</td>
+					
+						<td>
+							DNI&nbsp;    10110118    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23330931-0-96</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						12
+					</td>
+					<td >
+						PERALTA FLORES MARCIAL AUGUSTO                                             
+					</td>
+					
+						<td>
+							DNI&nbsp;    25693740    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-23342416-0-97</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						13
+					</td>
+					<td >
+						SOSA CALERO LUIS ALBERTO                                                   
+					</td>
+					
+						<td>
+							DNI&nbsp;    25540520    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23670615-0-11</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						14
+					</td>
+					<td >
+						CHUQUI LINAN TEODORO                                                       
+					</td>
+					
+						<td>
+							DNI&nbsp;    25539858    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23531244-0-32</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						15
+					</td>
+					<td >
+						BOBADILLA ALVA JOSE MANUEL                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    17991668    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>570-21047139-0-90</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						16
+					</td>
+					<td >
+						GUTIERREZ CARDENAS ERNESTO ISIDORO                                         
+					</td>
+					
+						<td>
+							DNI&nbsp;    25406103    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23350269-0-29</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						17
+					</td>
+					<td >
+						VENEGAS RUIZ GUILLERMO JAVIER                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    42551069    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-23605312-0-48</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						18
+					</td>
+					<td >
+						VELA SOLTERO LUIS ALBERTO                                                  
+					</td>
+					
+						<td>
+							DNI&nbsp;    17846522    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-23347654-0-87</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						19
+					</td>
+					<td >
+						DIAZ VILLANUEVA LEONEL JOSE EDILBERTO                                      
+					</td>
+					
+						<td>
+							DNI&nbsp;    72566349    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23403416-0-13</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						20
+					</td>
+					<td >
+						ROMERO VASQUEZ SERGIO ROLANDO                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    25533852    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-23431360-0-39</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						21
+					</td>
+					<td >
+						PALACIOS SIVINCHA ZENOBIO JESUS                                            
+					</td>
+					
+						<td>
+							DNI&nbsp;    43458820    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-22455042-0-59</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						22
+					</td>
+					<td >
+						TUESTA LOPEZ ROBER ANTONIO                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    74579679    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23840281-0-90</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						23
+					</td>
+					<td >
+						FLORES VASQUEZ MIGUEL ANGEL                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    25714074    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23732440-0-60</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						24
+					</td>
+					<td >
+						QUISPE AYALA JESUS FERNANDO                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    25576707    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23841637-0-60</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						25
+					</td>
+					<td >
+						VALLADOLID CRUZ JUAN                                                       
+					</td>
+					
+						<td>
+							DNI&nbsp;    10446316    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>194-23090105-0-38</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						26
+					</td>
+					<td >
+						ASTUVILCA INCA JOSE LUIS                                                   
+					</td>
+					
+						<td>
+							DNI&nbsp;    41145765    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-24010772-0-04</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						27
+					</td>
+					<td >
+						GALARZA ALVARADO CARLOS LUIGUIN                                            
+					</td>
+					
+						<td>
+							DNI&nbsp;    46998042    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-24086355-0-50</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						28
+					</td>
+					<td >
+						PILLACA QUISPE BERNABE                                                     
+					</td>
+					
+						<td>
+							DNI&nbsp;    31468091    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-20520754-0-33</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						29
+					</td>
+					<td >
+						PEREZ GONZALES EDWIN                                                       
+					</td>
+					
+						<td>
+							DNI&nbsp;    47285057    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>194-23459507-0-70</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						30
+					</td>
+					<td >
+						BASTANTE YNFANTE KENJI BRIAN ABEL                                          
+					</td>
+					
+						<td>
+							DNI&nbsp;    47769046    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>591.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-24373911-0-11</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						31
+					</td>
+					<td >
+						FELIX GAMBOA ALFREDO                                                       
+					</td>
+					
+						<td>
+							DNI&nbsp;    40496056    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-24480534-0-11</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						32
+					</td>
+					<td >
+						PAIVA VILLAVICENCIO MICHAEL                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    42609201    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-26607435-0-95</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						33
+					</td>
+					<td >
+						CORONADO VILLANUEVA JOBY ANTONIO                                           
+					</td>
+					
+						<td>
+							DNI&nbsp;    75234422    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-24445851-0-77</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						34
+					</td>
+					<td >
+						FUENTES DOMANSICH SANDRO GERARDO ANTONIO                                   
+					</td>
+					
+						<td>
+							DNI&nbsp;    07630619    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-24946228-0-08</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						35
+					</td>
+					<td >
+						SOSA MELENDEZ EDER RODOLFO                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    44674578    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-24258587-0-21</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						36
+					</td>
+					<td >
+						GUTIERREZ GARCIA ALEX LEONEL                                               
+					</td>
+					
+						<td>
+							DNI&nbsp;    42026022    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>305-25248834-0-59</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						37
+					</td>
+					<td >
+						MONTERO LEON AMERICO                                                       
+					</td>
+					
+						<td>
+							DNI&nbsp;    10761441    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25294829-0-31</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						38
+					</td>
+					<td >
+						MONTERO LEON YLMER                                                         
+					</td>
+					
+						<td>
+							DNI&nbsp;    10596950    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25295008-0-12</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						39
+					</td>
+					<td >
+						PINEDA LEON GUILLERMO MAXIMO                                               
+					</td>
+					
+						<td>
+							DNI&nbsp;    09731180    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25365626-0-43</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						40
+					</td>
+					<td >
+						MANRIQUE MILLA ANTONIO JESUS                                               
+					</td>
+					
+						<td>
+							DNI&nbsp;    32137053    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-20838287-0-72</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						41
+					</td>
+					<td >
+						NAJARRO SOTO ATILIO                                                        
+					</td>
+					
+						<td>
+							DNI&nbsp;    25785456    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-21125832-0-23</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						42
+					</td>
+					<td >
+						GIL POMA MARIO HUMBERTO                                                    
+					</td>
+					
+						<td>
+							DNI&nbsp;    44097123    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-25341337-0-09</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						43
+					</td>
+					<td >
+						CRIBILLERO ARMIJO EDDI RICHARD                                             
+					</td>
+					
+						<td>
+							DNI&nbsp;    71470132    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-25345539-0-53</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						44
+					</td>
+					<td >
+						ROMAYNA SAAVEDRA JUAN PEDRO                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    43807452    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>194-24465306-0-29</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						45
+					</td>
+					<td >
+						ALVITES GAONA EDWAR RICHARD                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    43792496    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-25477171-0-14</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						46
+					</td>
+					<td >
+						CANALES REYES GILBERT ARTURO                                               
+					</td>
+					
+						<td>
+							DNI&nbsp;    25529509    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-25600593-0-83</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						47
+					</td>
+					<td >
+						MACKER CASTILLO EDWIN SANTIAGO                                             
+					</td>
+					
+						<td>
+							DNI&nbsp;    25718623    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23212482-0-50</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						48
+					</td>
+					<td >
+						LIMA TERRAZA JORGE                                                         
+					</td>
+					
+						<td>
+							DNI&nbsp;    09838505    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25850822-0-40</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						49
+					</td>
+					<td >
+						CARCAMO DURAND JUAN CARLOS                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    41481688    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25882577-0-15</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						50
+					</td>
+					<td >
+						CHUQUIVIGUEL PORTILLA JOSE LUIS                                            
+					</td>
+					
+						<td>
+							DNI&nbsp;    46572449    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25907059-0-44</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						51
+					</td>
+					<td >
+						ORTEGA ZEGARRA DIEGO                                                       
+					</td>
+					
+						<td>
+							DNI&nbsp;    45972589    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-23319274-0-20</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						52
+					</td>
+					<td >
+						VELASQUEZ SALDIVAR LUIS ENRRIQUE                                           
+					</td>
+					
+						<td>
+							DNI&nbsp;    44324191    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-26228312-0-43</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						53
+					</td>
+					<td >
+						SALAZAR VILCA LUIS ALBERTO                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    44752607    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-26285278-0-84</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						54
+					</td>
+					<td >
+						RAYMUNDO MIRANDA MARCO ANTONIO                                             
+					</td>
+					
+						<td>
+							DNI&nbsp;    04050462    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,058.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-23595269-0-03</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						55
+					</td>
+					<td >
+						GUARDAMINO ROMAYNA CESAR LUIS                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    43261305    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-24665656-0-02</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						56
+					</td>
+					<td >
+						PAREDES RIOS EDIMSON ABEL                                                  
+					</td>
+					
+						<td>
+							DNI&nbsp;    43112782    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-26652055-0-66</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						57
+					</td>
+					<td >
+						ESCOBAR CARUAJULCA MAYKO YOEL                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    45040550    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-26650291-0-84</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						58
+					</td>
+					<td >
+						VASQUEZ REVELO GERELMAN FREDY                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    42592461    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-22862089-0-17</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						59
+					</td>
+					<td >
+						GUERRERO VASQUEZ DANIEL JOSUE                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    44555484    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-23487285-0-28</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						60
+					</td>
+					<td >
+						ORTEGA ZEGARRA FELIX                                                       
+					</td>
+					
+						<td>
+							DNI&nbsp;    42667855    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-26868966-0-67</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						61
+					</td>
+					<td >
+						CERVERA ZUZANIBAR JOSE MANUEL                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    47018132    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>591.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-27725207-0-58</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						62
+					</td>
+					<td >
+						CRUZADO LOPEZ MARIO ANTONIO                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    16726917    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>662.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-27180249-0-96</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						63
+					</td>
+					<td >
+						LOZANO BANCES LUIS                                                         
+					</td>
+					
+						<td>
+							DNI&nbsp;    16442231    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,057.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-24887304-0-89</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						64
+					</td>
+					<td >
+						GUEVARA CAJACHUAN JUAN ELY                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    43146595    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>909.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-24921481-0-11</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						65
+					</td>
+					<td >
+						CARBAJAL GALVAN BENJAMIN DARIO                                             
+					</td>
+					
+						<td>
+							DNI&nbsp;    04436566    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25309574-0-24</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						66
+					</td>
+					<td >
+						SEVERINO ORE LUIS GUILLERMO                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    41485028    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>910.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>194-22774305-0-47</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						67
+					</td>
+					<td >
+						RODRIGUEZ CHAUCA ALEJANDRO                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    43517256    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>591.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-27723527-0-61</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						68
+					</td>
+					<td >
+						ROMERO ALCAZAR JOSE LUIS                                                   
+					</td>
+					
+						<td>
+							DNI&nbsp;    42085369    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>810.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-21383923-0-21</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						69
+					</td>
+					<td >
+						REYES CANAMERO VICTOR JAIME                                                
+					</td>
+					
+						<td>
+							DNI&nbsp;    40336317    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>591.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-27739523-0-18</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						70
+					</td>
+					<td >
+						DORDAN GALARZA JUAN JOSE                                                   
+					</td>
+					
+						<td>
+							DNI&nbsp;    70349558    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>591.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-27710227-0-27</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						71
+					</td>
+					<td >
+						CHACON ALVARADO FRANKLYN LLAJANY                                           
+					</td>
+					
+						<td>
+							DNI&nbsp;    46534642    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-22391225-0-98</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						72
+					</td>
+					<td >
+						CHUNGA PAZO JUAN ARTURO                                                    
+					</td>
+					
+						<td>
+							DNI&nbsp;    41632504    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>810.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25666634-0-91</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						73
+					</td>
+					<td >
+						ESPINOZA HUAREZ RICHARD VICTOR                                             
+					</td>
+					
+						<td>
+							DNI&nbsp;    40287916    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>810.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-26713150-0-78</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						74
+					</td>
+					<td >
+						ROSAS SIPAN JOSE MARTIN                                                    
+					</td>
+					
+						<td>
+							DNI&nbsp;    40098961    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,057.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-23595512-0-49</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						75
+					</td>
+					<td >
+						SAKIHAMA LOPEZ JOSE SIESHO                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    46719473    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>909.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-27963336-0-92</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						76
+					</td>
+					<td >
+						IPANAQUE VILLEGAS CESAR AUGUSTO                                            
+					</td>
+					
+						<td>
+							DNI&nbsp;    02894126    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>1,057.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-20860809-0-23</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						77
+					</td>
+					<td >
+						TUESTA MORI ROMAN                                                          
+					</td>
+					
+						<td>
+							DNI&nbsp;    46169727    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>782.00</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-28054379-0-55</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+		
+	
+
+</table>
+
+
+<div class="footerButtons" align="right">
+	<input type="button" name="nmbtnClose" value="Cerrar" onclick="closePopup();" class="defaultButton">
+</div>
+
+
+<!-- End Form -->
+
+
+	<!-- End Body -->
+
+			</TD>
+		</TR>
+		</TABLE>
+	</td>
+	</tr>	
+	<tr>
+		<td height="100%" valign="bottom"><TABLE border="0" cellpadding="0" cellspacing="0" width="100%">	
+	
+		<TR id="mainTRFooter">
+			<TD id="mainTDFooter">
+
+
+
+
+
+
+
+
+
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><img src="/tlcnp/images/tringulo_pop.gif" width="47" height="44" alt="" border="0"></td></tr></table></TD>
+		</TR>
+	
+		</TABLE></td>
+	</tr>
+</table>	
+
+</body>
+</html>

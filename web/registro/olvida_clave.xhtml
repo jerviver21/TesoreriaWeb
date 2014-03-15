@@ -1,0 +1,42 @@
+
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+   <ui:composition template="../#{applicationController.plan1}">
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form1">
+            <p:messages id="msgs"/>
+            <br/>
+            <span class="titulo">Recuperación de Clave:</span>
+            <p:panelGrid id="grid" style="margin-top:20px">
+                <p:row>
+                    <p:column><p:outputLabel id="l_mail" value="E-mail: "/></p:column>
+                    <p:column><p:inputText  id="mail" value="#{restClaveController.mail}"/></p:column>
+                    <p:column><p:watermark for="mail" value="Correo Elecrónico"/></p:column>
+                    <p:column><p:message id="m_mail" for="mail"/></p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="4">
+                    <p:captcha label="Captcha" language="es" theme="white" validatorMessage="Palabras incorrectas, Intente de nuevo" requiredMessage="Dígite las palabras de la imagen"/> 
+                    </p:column>
+                </p:row>
+                <f:facet name="footer">
+                    <p:row>
+                        <p:column colspan="4">
+                            <p:commandButton id="reg_button" value="Enviar" action="#{restClaveController.solicitarRestauracion}" ajax="false"/>
+                        </p:column>
+                    </p:row>
+                </f:facet>
+            </p:panelGrid>
+        </h:form>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+

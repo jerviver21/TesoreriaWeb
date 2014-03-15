@@ -1,0 +1,19 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+  <ui:composition template="../#{applicationController.plan1}">
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:outputLabel value="Su sesion ha terminado!" style="color: red"  />
+        <a href="#{labels.contexto}/index.xhtml">
+            Volver a autenticarse!
+        </a>
+        </div>
+  </ui:define>
+  </ui:composition>
+</f:view>
+</html>

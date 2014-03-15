@@ -1,0 +1,23 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:sec="http://www.springframework.org/security/facelets/tags">
+<f:view>
+  <ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <p>
+
+    <sec:ifAllGranted roles="ROLE_ADMIN">
+        PROGRAMA: <p:inputText id="campo" value=""/>
+    </sec:ifAllGranted>
+         
+        </p>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>

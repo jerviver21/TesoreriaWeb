@@ -1,0 +1,103 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     >
+
+
+    <f:view>
+
+        <ui:composition template="../#{applicationController.plan3}">
+            <ui:define name="contenido">
+                <div style="height: 1000px">
+                    <h:form>  
+                        <p:messages id="messages"/>  
+
+                        <p:outputLabel value="Archivos Cargados: #{teleceController.cargados}"/>  
+                        <br/>
+                        <p:outputLabel value="Cargue el Archivo:"/>
+                        <p:fileUpload fileUploadListener="#{teleceController.cargar}" mode="advanced" dragDropSupport="false"  
+                                       multiple="true" update="@form" sizeLimit="500000" fileLimit="30" allowTypes="/(\.|\/)(html?|txt|csv)$/" />  
+
+                        <p:dataTable value="#{teleceController.registros}" var="item" 
+                                paginator="true"
+                                paginatorAlwaysVisible="false"
+                                rows="5"
+                                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                paginatorPosition="top">
+                            <p:column headerText="Tipo">
+                                <h:outputText value="#{item.tipoOperacion}"/>
+                            </p:column>
+                            <p:column headerText="Planilla">
+                                <h:outputText value="#{item.noPlanilla}"/>
+                            </p:column>
+                            <p:column headerText="Fecha">
+                                <h:outputText value="#{item.fechaPago}">
+                                    <f:convertDateTime type="date" pattern="yyyy-MM-dd"/>
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="RP">
+                                <h:outputText value="#{item.rp}"/>
+                            </p:column>
+                            <p:column headerText="Nombre">
+                                <h:outputText value="#{item.nombre}"/>
+                            </p:column>
+                            <p:column headerText="Id">
+                                <h:outputText value="#{item.proveedor.ruc}"/>
+                            </p:column>
+                            <p:column headerText="Monto">
+                                <h:outputText value="#{item.monto}"/>
+                            </p:column>
+                            <p:column headerText="M">
+                                <h:outputText value="#{item.monDes}"/>
+                            </p:column>
+                            <p:column headerText="Cuenta">
+                                <h:outputText value="#{item.descDestino}"/>
+                            </p:column>
+                            <p:column headerText="Estado">
+                                <h:outputText value="#{item.estado}"/>
+                            </p:column>
+                            <p:column headerText="Observaciones">
+                                <h:outputText value="#{item.observacion}"/>
+                            </p:column>
+                            <p:column headerText="Operacion">
+                                <h:outputText value="NO SE CARGA(Ya existe)" rendered="#{item.cargado}"/>
+                                <h:outputText value="CARGAR" rendered="#{!item.cargado}"/>
+                            </p:column>
+                        </p:dataTable>
+                        <br/>
+                        <p:outputLabel value="Numero de inconsistencias: #{teleceController.noInconsistencias}"/>
+                        <br/>
+                        <p:dataTable value="#{teleceController.notificaciones}" var="item" 
+                                paginator="true"
+                                paginatorAlwaysVisible="false"
+                                rows="5"
+                                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                paginatorPosition="top">
+                            <p:column headerText="Notificacion">
+                                <h:outputText value="#{item.mensaje}"/>
+                            </p:column>
+                            <p:column headerText="Tipo">
+                                <h:outputText value="#{item.tipo}"/>
+                            </p:column>
+                            <p:column headerText="Archivo">
+                                <h:outputText value="#{item.archivo}"/>
+                            </p:column>
+                            <p:column headerText="Operacion">
+                                <h:outputText value="NO SE CARGA(Ya existe)" rendered="#{item.cargado}"/>
+                                <h:outputText value="CARGAR" rendered="#{!item.cargado}"/>
+                            </p:column>
+                        </p:dataTable>
+                        
+                        
+                        <p:commandButton action="#{teleceController.cargarInfoBD}" value="Cargar" update="@form" rendered="#{not empty teleceController.registros}"/>
+                          
+                     </h:form>  
+                </div>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+
+</html>

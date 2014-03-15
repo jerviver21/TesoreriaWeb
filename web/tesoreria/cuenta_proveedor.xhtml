@@ -1,0 +1,62 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     >
+    <f:view>
+        <ui:composition template="../#{applicationController.plan3}">
+            <ui:define name="contenido">
+                
+                <br/>
+                <span class="titulo">Ingrese los datos de su cuenta</span>
+                <br/>
+               <h:form id="form" prependId="false">
+                    <p:messages id="msgs" />  
+                    <p:panelGrid style="margin-top:20px">
+                        <f:facet name="header">  
+                            <p:row>  
+                                <p:column colspan="4">Información de la cuenta</p:column>  
+                            </p:row>  
+                        </f:facet>  
+                        <p:row>
+                            <p:column><h:outputLabel  value="No Cuenta BCP: (Si no tiene cuenta BCP, entonces digite su CCI (Código de Cuenta Interbancaria))" /></p:column>
+                            <p:column>
+                                <p:inputText id="cuenta" value="#{provedorController.cuenta.noCuenta}" 
+                                             validatorMessage="Formato Valido: 0000000000000">
+                                    <f:validateRegex pattern="\s*(\d{13}|\d{14}|\d{20}|\d{3}-\d{3}-\d{12}-\d{2}|\d{3}-\d{7}-\d{1}-\d{2}|\d{3}-\d{8}-\d{1}-\d{2})\s*"/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="cuenta"/></p:column>
+                            <p:column><p:watermark value="" for="cuenta"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="Moneda:" /></p:column>
+                            <p:column>
+                                <h:selectOneMenu id="moneda" value="#{provedorController.cuenta.moneda}">
+                                    <f:selectItem  itemValue="S/." itemLabel="Soles" />
+                                    <f:selectItem  itemValue="$" itemLabel="Dolares"/>
+                                    
+                                </h:selectOneMenu>
+                            </p:column>
+                            <p:column><p:message for="moneda"/></p:column>
+                            <p:column><p:watermark value="" for="moneda"/></p:column>
+                        </p:row>
+                        <f:facet name="footer">
+                            <p:row>  
+                                <p:column colspan="4"><p:commandButton value="Guardar" action="#{provedorController.guardarCuenta}" ajax="false"/></p:column>  
+                            </p:row> 
+                        </f:facet>
+                    </p:panelGrid>
+                    <br/>
+
+                </h:form>
+
+                
+            </ui:define>
+        </ui:composition>
+    </f:view>
+
+</html>

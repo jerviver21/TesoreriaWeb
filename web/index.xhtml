@@ -1,0 +1,43 @@
+
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+    <ui:composition template="#{applicationController.plan1}">
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form0" prependId="false">
+            <p:growl id="msgs"/>
+            <h:outputLabel id="error_msg" value="#{loginController.mensaje} " style="color: red"  />
+            <h:link value="#{loginController.link}" outcome="#{loginController.urlLicencia}" rendered="#{loginController.urlLicencia ne null}"/>
+            <br/>
+            <span class="titulo">Login:</span>
+            <p:panelGrid columns="3">
+                <p:outputLabel  value="E-mail: "/>
+                <p:inputText id="j_username"  size="30"/>
+                <p:watermark value="Digite su e-mail" for="j_username"/>
+                
+                <p:outputLabel  value="Clave: "/>
+                <p:password id="j_password" size="30" feedback="false"/>
+                <p:watermark value="Digite su clave" for="j_password"/>
+                
+                <f:facet name="footer">
+                    <p:commandButton type="submit" id="login" action="#{loginController.doLogin}" value="#{labels.boton_enviar}" ajax="false"/>
+                </f:facet>
+            </p:panelGrid>
+            <br/>
+            <!--<h:link id="link1" outcome="/registro/olvida_clave.xhtml" value="¿Olvidó su clave?"/>
+            <p:spacer width="15"/>
+            <h:link id="link2" outcome="/registro/registro.xhtml" value="Regístrate"/>-->
+
+        </h:form>
+
+        </div>
+        </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+

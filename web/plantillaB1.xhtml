@@ -1,0 +1,61 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:sec="http://www.springframework.org/security/facelets/tags"
+     xmlns:p="http://primefaces.org/ui">
+
+    <h:head id="head1">
+        <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=10"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title id="title">Paideia Software</title>
+        <link href="#{labels.contexto}/styles/#{applicationController.estiloB1}" rel="stylesheet" type="text/css" />
+        <script lang="JavaScript" type="text/JavaScript" src="#{labels.contexto}/scripts/funciones.js"></script>
+        <f:view id="view1" locale="#{generalController.locale}" />
+        </f:facet>
+     </h:head>
+     <h:body id="body1">
+         <div id="holder">																																																																																																																																																																																																																																																																											
+            <div id="top">
+                <div id="name_part_1" >#{labels.p_nombre} <span class="orange">#{labels.sn_pletra}</span>#{labels.s_nombre}</div>
+                <div id="top1">
+                    Paideia Software
+                </div>
+                <div id="top2">
+                    SISTEMA DE SERVICIOS DE TESORERIA. PERÚ
+                </div>
+               <div style="text-align: right">
+                  <!--<p:graphicImage value="images/logo1.png" />-->
+                  <sec:ifAnyGranted roles="ROLE_USER, MASTER">
+                    <a id="ref1" href="#{labels.contexto}/j_spring_security_logout">Cerrar Sesion</a>
+                  </sec:ifAnyGranted>  
+               </div>
+            </div>
+            <div id="left_col">
+                <div class="clearboth"></div>												
+                <!-- Menu -->
+                <ui:insert id="nav" name="navegador">
+                    <ui:include src="menu.xhtml">
+                        <ui:param name="tipo" value="TIERED" />
+                    </ui:include>
+                </ui:insert>
+                <!-- Menu end-->				
+            </div>
+            <!--Contenido-->
+            <div id="right_col">											
+                <ui:insert id="cont" name="contenido"></ui:insert>										
+            </div>
+            <!--End contenido-->
+            <!--Pie -->
+            <div id="bottom">											
+                 <ui:insert id="nav" name="pie">
+                     <ui:include src="piepag.xhtml"/>
+                 </ui:insert>
+            </div>
+            <!--End Pie-->
+        </div>
+    </h:body>
+</html>
+

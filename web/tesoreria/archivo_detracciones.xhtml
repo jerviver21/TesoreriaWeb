@@ -1,0 +1,37 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     >
+
+
+    <f:view>
+
+        <ui:composition template="../#{applicationController.plan3}">
+
+            <ui:define name="contenido">
+                <div style="height: 450px">
+                <h:form id="formId">
+                    <p:growl id="msgs" />
+                    <span class="titulo">Archivo de Detracciones</span>
+
+                    <p:panelGrid columns="2">
+                        <p:outputLabel value="Fecha de Carga:"/>
+                        <p:calendar value="#{archivoDetrController.fecha}" pattern="yyyy-MM-dd"/>
+                        <f:facet name="footer">
+                            <p:commandButton value="#{labels.boton_enviar}" action="#{archivoDetrController.generar}" update="@form"/>
+                        </f:facet>
+                    </p:panelGrid>
+
+                    <p:commandLink value="#{labels.descargar}" ajax="false" title="Download" actionListener="#{archivoDetrController.descargar}" rendered="#{archivoDetrController.renderDownload}">
+                          <p:fileDownload value="#{archivoDetrController.file}"/>
+                    </p:commandLink>
+                </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+
+</html>

@@ -1,0 +1,983 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+
+	
+	<head>
+		<title>Telecrédito - BCP</title>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+		<meta name="keywords" content="EverSystems Informatica Ltda."/>	
+		<link href="/tlcnp/css/style.css" type="text/css" rel="stylesheet"/>
+		<link href="/tlcnp/css/stylePrint.css" type="text/css" rel="stylesheet" media="print" />
+	</head>
+	
+	<script src="/tlcnp/js/jquery-1.9.1.js" ></script>
+	<script src="/tlcnp/js/jquery-ui-1.10.1.custom.min.js" ></script>
+	<script src="/tlcnp/js/jquery_bigframe.js" ></script>
+	<script src="/tlcnp/js/functions.js" ></script>
+	<script src="/tlcnp/js/control.jsp" ></script>
+<body leftmargin="0" topmargin="0" rightmargin="0" onLoad="self.focus();" style="overflow-x: auto;">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" height="100%">
+	<tr>
+		<td>
+		<TABLE border="0" cellpadding="0" cellspacing="0" width="100%">
+		<TR id="mainTRHeader">
+			<TD id="mainTDHeader">
+				
+
+
+
+
+
+
+
+
+
+
+
+<!-- Start Header -->
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="compHeaderPopUp">
+	<td align="right"><img src="/tlcnp/images/header_popup.gif" alt="" width="380" height="44" border="0"></td>
+</tr>
+</table>
+<!-- End Header -->
+			</TD>
+		</TR>
+		</TABLE>
+		</td>
+	</tr>	
+	<tr>
+		<td>	
+		<TABLE border="0" cellpadding="0" cellspacing="0" width="99%">
+		<TR id="mainTRBody">
+			<TD width="10"><img src="/tlcnp/images/trans.gif" width="10" height="1" alt=""></TD>
+			<TD id="mainTDBody" width="100%">
+				
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	function exportResult(){
+		callExportPage("/tlcnp/exportPage.do?methodToCall=show");
+	}
+	function printResult(){
+		self.print();
+	}
+	function helpContext(){
+		callScreenHelp('');
+	}
+</script>
+
+
+
+	<!-- Conforme definición de la REF: "6.1.5 Definición de tracking" no debe tener traking en las Pop-Ups -->
+	
+	<!-- Start Tracking
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tr class="tracking">
+		<td>&raquo;
+		   
+	        
+	           
+			      <span class="trackingActive" id="txtTrackingActive">Detalle de operación - planilla de haberes </span>
+	           
+	            
+	        
+        </td>
+	</tr>
+	</table>
+	End Tracking -->	
+	<br>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="title"><span id="txtPageTitle">Detalle de operación - planilla de haberes </span></td>
+		<td align="right">
+		<span class="noPrint">
+			
+				<span id="btExportPage">
+				
+					<img src="/tlcnp/images/ic_export.gif" width="15" height="13" alt="" border="0"/>
+					
+						
+							<a href="javascript:exportResult()" class="txtIcon">Exportar</a>
+						
+						
+					
+				
+				</span>
+			
+			
+				<span id="btPrintPage">
+				
+					<img src="/tlcnp/images/ic_print.gif" width="15" height="13" alt="" border="0"/>
+					
+						
+							<a href="javascript:self.print();" class="txtIcon">Imprimir</a>
+						
+						
+					
+				
+				</span>
+			
+			
+			</span>
+		</td>
+	</tr>
+	<tr class="line">
+		<td colspan="2"><img src="/tlcnp/images/trans.gif" width="1" height="1" alt="" border="0"/></td>
+	</tr>
+	</table>
+	<br>	
+	<!-- Start Box Message -->
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+	<!-- Start Box Message -->
+
+
+
+	<div id="divBoxMessage" style="display: none">
+		<table border="0" cellspacing="0" cellpadding="2" width="100%">
+			<tr id="trBoxMessage">
+				<td width="15" id="tdBoxImg"></td>
+				<td width="100%" id="tdBoxMessage"></td>
+			</tr>
+		</table>
+	</div>
+
+	
+	<!-- End Box Message -->
+
+
+<!-- Start Form -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+	function closePopup() {
+		var oReq = new ActiveXObject("Microsoft.XMLHTTP");
+		oReq.open("GET", "voucherPaymentMass.do?methodToCall=exportDetailSheet", false);
+		oReq.send();
+		window.close();
+	}
+
+	function showPlus(index, rowLength){
+		for(var i=0; i < rowLength; i++){
+			var row = "row" + index + "_" + i;
+			var obj = document.getElementById(row);
+
+			if(obj.style.display == 'none')
+				obj.style.display = '';
+			else
+				obj.style.display = 'none';
+		}
+		if (document.getElementById("img_"+index).src.indexOf('ic_plus') >= 0 )
+			document.getElementById("img_"+index).src="../images/ic_minus.gif";
+		else
+			document.getElementById("img_"+index).src="../images/ic_plus.gif";
+	}
+
+	function exportDetailSheet(){
+		var oReq = new ActiveXObject("Microsoft.XMLHTTP");
+		oReq.open("GET", "voucherPaymentMass.do?methodToCall=exportDetailSheet", false);
+		oReq.send();
+		window.close();
+	}
+</script>
+
+<body onunload="javascript:exportDetailSheet()"></body>
+
+
+
+
+
+
+
+<!-- Verify if have permissions of "Consulta de detalle SIN MONTO - planilla cualquiera" -->
+
+	
+	
+		
+	
+	
+	
+
+
+
+<!-- Header Begin -->
+<table>
+	<tr>
+	<td class="subTitle" colspan="4">Datos generales:<br><br></td>
+	</tr>
+
+	<tr>
+		<td class="labelFields" nowrap="true">Tipo de operación:</td>
+		<td width="35%">Haberes</td>
+		
+			<td class="labelFields" nowrap="true">Subtipo:</td>
+			<td width="35%">
+				
+					
+					
+						5ta. Categoría - Exonerado de ITF
+					
+				
+			</td>
+		
+	</tr>
+	<tr>
+		<td class="labelFields" nowrap="true">Nº planilla:</td>
+		<td width="35%">002780</td>
+		<td class="labelFields" nowrap="true">Fecha de proceso:</td>
+		<td width="35%">15/01/2014</td>
+	</tr>
+</table><br>
+<!-- Header End -->
+<!-- Sheet Detail -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table>
+	
+	
+	
+		<tr>
+			<td class="labelFields" nowrap="true">Referencia de planilla:</td>
+			<td width="35%">RP 2420</td>
+			<td class="labelFields">Cuenta de origen:</td>
+			<td>193-1958110-0-88 -
+			S/. -
+			ODEBRECHT PERU ING Y CONS-PROY MUELLE MI</td>
+		</tr>
+		<tr>
+			<td class="labelFields">Empresa pagadora:</td>
+			<td>ODEBRECHT PERU INGENIERIA Y CONSTRUCCION S.A.C.</td>
+			<td class="labelFields">Firmada por:</td>
+			<td colspan="3">
+				VICTOR HUGO BARREDA JARA
+				&nbsp;/&nbsp;HENRY BENE FRANCO NOLASCO
+			</td>
+		</tr>
+	
+	
+</table>
+<br>
+<table>
+	<tr>
+		<td class="labelFields">Resumen de pagos</td>		
+	</tr>
+</table>
+<br>
+<table>
+	<tr>
+		<td class="labelFields" nowrap="true">Nº registros:</td>
+		<td width="30%">10</td>
+		<td class="labelFields" nowrap="true">Monto total:</td>
+		<td width="30%">S/. 50,321.21</td>	
+	</tr>
+	<tr>
+		<td class="labelFields">Nº registros procesados:</td>
+		<td width="30%">10</td>
+		<td class="labelFields">Monto registros procesados:</td>
+		<td width="30%">S/. 50,321.21</td>	
+	</tr>
+	<tr>
+		<td class="labelFields">Nº registros rechazados:</td>
+		<td width="30%">0</td>
+		<td class="labelFields">Monto registros rechazados:</td>
+		<td width="30%">S/. 0.00</td>	
+	</tr>
+</table>
+<br>
+
+<!-- End Information Detail -->
+
+<table cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="gridCaption">Detalle de la planilla</td>
+</tr>
+</table>
+
+	<table border="0" cellspacing="1" cellpadding="0" width="100%">
+	<tr class="headerGrid">
+		<td rowspan="2"></td>
+		
+			
+				<td colspan="2">Beneficiario</td>
+			
+			
+		
+		<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+		
+			
+				
+				
+					<td rowspan="2" colspan="2">Monto</td>
+				
+			
+			<td rowspan="2">T/C</td>
+			<td rowspan="2" colspan="2">Monto abonado</td>
+		
+		<td colspan="3">Cuenta</td>
+		<td class="gridState" rowspan="2">Estado</td>
+		<td class="gridComment" rowspan="2">Observación</td>
+	</tr>
+	<tr class="headerGrid">
+		<td>Nombre</td>
+		
+			<td>Documento</td>
+		
+		<td>T</td>
+		<td>M</td>
+		<td>Número</td>
+	</tr>
+	
+		
+		
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						1
+					</td>
+					<td >
+						TINEO PAQUIYAURI MARCIAL                                                   
+					</td>
+					
+						<td>
+							DNI&nbsp;    41176341    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>10,735.70</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-23146461-0-62</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						2
+					</td>
+					<td >
+						BALDEON MAGAN IVAN ALEXANDER                                               
+					</td>
+					
+						<td>
+							DNI&nbsp;    72733701    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>6,185.83</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-21240973-0-27</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						3
+					</td>
+					<td >
+						JAUREGUI LUDENA OYAMA WELICON                                              
+					</td>
+					
+						<td>
+							DNI&nbsp;    07592140    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>4,820.77</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-24716043-0-98</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						4
+					</td>
+					<td >
+						MALLQUI CHUQUIYAURI RONAL ROGER                                            
+					</td>
+					
+						<td>
+							DNI&nbsp;    44182347    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>3,387.13</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-25993184-0-39</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						5
+					</td>
+					<td >
+						GALLEGOS QUISPE MARCOS ANTONIO                                             
+					</td>
+					
+						<td>
+							DNI&nbsp;    25786191    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>2,337.63</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>192-18721261-0-63</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						6
+					</td>
+					<td >
+						PACHECO COTILLO DAVID FRANCISCO                                            
+					</td>
+					
+						<td>
+							DNI&nbsp;    08588433    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>8,912.62</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-20747680-0-50</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						7
+					</td>
+					<td >
+						BAYONA CASTANEDA LILIANA                                                   
+					</td>
+					
+						<td>
+							DNI&nbsp;    44492590    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>3,715.47</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>193-23565688-0-23</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						8
+					</td>
+					<td >
+						LLOVERA CHALAN ENCARNACION                                                 
+					</td>
+					
+						<td>
+							DNI&nbsp;    41698532    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>4,143.27</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-23487490-0-35</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor20" >
+					<td nowrap>
+						
+						9
+					</td>
+					<td >
+						BRONCANO HILARIO DAVID GILER                                               
+					</td>
+					
+						<td>
+							DNI&nbsp;    43113895    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>3,988.71</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-23048624-0-37</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+				<TR class="bgColor40" >
+					<td nowrap>
+						
+						10
+					</td>
+					<td >
+						PRIETO AGUERO RAUL BENITO                                                  
+					</td>
+					
+						<td>
+							DNI&nbsp;    40162443    
+						</td>
+					
+					<!-- If there's NO permission to "Consulta de detalle sin monto - planilla cualquiera", then SHOW the credited ammount -->
+					
+						
+							
+							
+								<td nowrap>S/.</td>
+								<td nowrap>2,094.08</td>
+							
+						
+						
+						
+						
+							
+								<td></td>
+								<td></td>
+								<td></td>
+							
+							
+							
+						
+					
+					
+						
+						
+							
+								
+									<td>A</td>
+								
+								
+								
+							<td>S/.</td>
+							<td nowrap>191-25502684-0-85</td>
+						
+					
+					<td class="gridState">Procesada</td>
+					<td class="gridComment">
+						Ninguna
+					</td>
+				</TR>
+				
+			
+		
+	
+
+</table>
+
+
+<div class="footerButtons" align="right">
+	<input type="button" name="nmbtnClose" value="Cerrar" onclick="closePopup();" class="defaultButton">
+</div>
+
+
+<!-- End Form -->
+
+
+	<!-- End Body -->
+
+			</TD>
+		</TR>
+		</TABLE>
+	</td>
+	</tr>	
+	<tr>
+		<td height="100%" valign="bottom"><TABLE border="0" cellpadding="0" cellspacing="0" width="100%">	
+	
+		<TR id="mainTRFooter">
+			<TD id="mainTDFooter">
+
+
+
+
+
+
+
+
+
+
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td align="right"><img src="/tlcnp/images/tringulo_pop.gif" width="47" height="44" alt="" border="0"></td></tr></table></TD>
+		</TR>
+	
+		</TABLE></td>
+	</tr>
+</table>	
+
+</body>
+</html>

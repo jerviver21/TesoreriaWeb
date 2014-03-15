@@ -1,0 +1,72 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+<ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+      <div style="height: 1000px">
+      <h:form id="form">
+        <p:growl id="msgs" />
+        <h:inputHidden id="id" value="#{usuariosController.usuario.id}"/>
+
+        <p:panel id="form_grupo" header="Datos del Usuario">
+        <p:panelGrid columns="3" id="grid">
+            <h:outputLabel for="usr" value="Usuario: " />
+            <p:inputText id="usr" value="#{usuariosController.usuario.usr}" required="true"  />
+            <p:message for="usr"/>
+
+            <h:outputLabel for="pwd" value="Contraseña: *" />
+            <p:password id="pwd" value="#{usuariosController.usuario.pwd}" feedback="true"/>
+            <p:message for="pwd"/>
+
+
+            <h:outputLabel value="Grupos: " />
+            <p:dataGrid id="grupos_usr" var="grupo" value="#{usuariosController.grupos}" 
+                            columns="#{usuariosController.gridColumnasGrupos}" 
+                            rows="#{usuariosController.gridFilasGrupos}">
+                <p:column>
+                    <p:selectBooleanCheckbox value="#{grupo.addUser}" />
+                    <h:outputText value="#{grupo.codigo}"/>
+                </p:column>
+            </p:dataGrid>
+            <p:message for="grupos_usr"/>
+            <f:facet name="footer">
+            <p:commandButton value="Guardar" update="@form"  action="#{usuariosController.guardar}" ajax="true"/>
+            </f:facet>
+        </p:panelGrid>
+        </p:panel>
+
+        <br/>
+        
+        <p:outputPanel id="usuarios">
+            <p:commandButton update="@form" actionListener="#{usuariosController.nuevo}" value="Crear" icon="ui-icon-document"/>
+            <p:dataTable value="#{usuariosController.usuarios}" var="usuario"
+                             paginator="true"
+                             rows="10"
+                             paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                             paginatorPosition="top"
+                             paginatorAlwaysVisible="false">
+                <p:column headerText="Login" filterBy="#{usuario.usr}">
+                    <h:outputText value="#{usuario.usr}"/>
+                </p:column>
+
+                <p:column headerText="Borrar">
+                    <p:commandButton update=":form:usuarios :form:msgs" icon="ui-icon-trash" process="@this" actionListener="#{usuariosController.borrar(usuario)}"/>
+                </p:column>
+                <p:column headerText="Actualizar">
+                    <p:commandButton update="@form"  process="@this" actionListener="#{usuariosController.actualizar(usuario)}" icon="ui-icon-pencil"/>
+                </p:column>
+            </p:dataTable>
+        </p:outputPanel>
+
+
+
+    </h:form>
+      </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>

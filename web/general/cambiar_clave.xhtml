@@ -1,0 +1,28 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+  <ui:composition template="../#{applicationController.plan3}">
+
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form">
+            <p:messages/>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="#{labels.clave_nueva}"/>
+                <p:password id="newpassword" value="#{changePassController.newPass}" feedback="true"/>
+
+                <h:outputLabel value="#{labels.conf_clave_nueva}"/>
+                <p:password id="confirmpassword" value="#{changePassController.confirmPass}" feedback="true"/>
+
+                <p:commandButton value="#{labels.boton_enviar}" action="#{changePassController.changePassword}" update="@form"/>
+            </h:panelGrid>
+        </h:form>
+        </div>
+   </ui:define>
+  </ui:composition>
+</f:view>
+</html>

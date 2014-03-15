@@ -1,0 +1,42 @@
+
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+    <ui:composition template="../#{applicationController.plan1}">
+    
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form1">
+            <p:messages id="msgs"/>
+            
+            <h:link value="Login" outcome="/index.xhtml" rendered="#{restClaveController.linkIngreso}"/>
+            <br/>
+            <span class="titulo">Recuperación de Clave:</span>
+            <p:panelGrid  columns="4" >
+                <p:outputLabel value="Código: "/>
+                <p:inputText  id="codigo" size="30" value="#{restClaveController.codigo}" required="true"/>
+                <p:watermark for="codigo" value="Código enviado a su e-mail"/>
+                <p:message for="codigo"/>
+                <p:outputLabel value="Nueva Clave: "/>
+                <p:password  id="clave" size="30" value="#{restClaveController.clave}" match="cclave" feedback="true" required="true"/>
+                <p:watermark for="clave" value="clave nueva"/>
+                <p:message for="clave"/>
+                <p:outputLabel value="Confirme Clave "/>
+                <p:password  id="cclave" size="30" value="#{restClaveController.cclave}" feedback="false" required="true"/>
+                <p:watermark for="cclave" value="Digite de nuevo su clave nueva"/>
+                <p:message for="cclave"/>
+                <f:facet name="footer">
+                    <p:commandButton id="reg_button" value="Enviar" action="#{restClaveController.restaurarClave}" ajax="false"/>
+                </f:facet>
+            </p:panelGrid>
+        </h:form>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+

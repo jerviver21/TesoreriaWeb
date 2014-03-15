@@ -1,0 +1,108 @@
+
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+    <ui:composition template="../#{applicationController.plan1}">
+    
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form1">
+            <p:messages id="msgs1"/>
+            <h:link value="Login" outcome="/index.xhtml" rendered="#{registroController.linkIngreso}"/>
+            <br/>
+
+            <span class="titulo">Datos del Usuario:</span>
+            <p:panelGrid id="grid" style="margin-top:20px">
+                  
+                    <p:row>
+                    <p:column>
+                    <p:outputLabel id="l_nombre" value="Nombre Completo *"/>
+                    </p:column>
+                    <p:column>
+                        <p:inputText  id="nombre" size="22" value="#{registroController.usuarioRegistrar.nombre}" required="true" validatorMessage="No Ingrese Caracteres Invalidos">
+                        <f:validateRegex pattern="[\w\s\.]+"/>
+                    </p:inputText>
+                    </p:column>
+                    <p:column>
+                    <p:message id="m_nombre" for="nombre"/>
+                    </p:column>
+                    <p:column><p:watermark for="nombre" value="Nombres y Apellidos"/></p:column>  
+                    </p:row>
+                
+                    <p:row>
+                        <p:column>
+                        <p:outputLabel id="l_numid" value="Clave *"/>
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="numid" size="22"  value="#{registroController.usuarioRegistrar.numId}">
+                                <f:validateRegex pattern="[\d]+"/>
+                            </p:inputText>
+                        </p:column>
+                        <p:column>
+                        <p:message id="m_numid" for="numid"/>
+                        </p:column>
+                        <p:column><p:watermark for="numid" value="D.N.I."/></p:column>
+                    </p:row>
+                    
+                    
+                    <p:row>
+                    <p:column>
+                    <p:outputLabel id="l_mail" value="E-mail *" />
+                    </p:column>
+                    <p:column>
+                        <p:inputText id="mail" size="22" value="#{registroController.usuarioRegistrar.usr}" required="true" validatorMessage="Formato de correo invalido">
+                        <f:validateRegex pattern="[\w\.]+@\w+\.\w+\.*\w*"/>
+                        <p:ajax process="mail" update="mail m_mail" event="blur" listener="#{registroController.dispUsuario}"/>
+                    </p:inputText>
+                    
+                    </p:column>
+                    <p:column>
+                    <p:message id="m_mail" for="mail"/>
+                    </p:column>
+                    <p:column><p:watermark for="mail" value="Correo electronico"/></p:column>
+                    </p:row>
+                    
+
+                    <p:row>
+                    <p:column>
+                    <p:outputLabel id="l_pwd1" value="Clave *"/>
+                    </p:column>
+                    <p:column>
+                    <p:password id="pwd1" size="22" required="true" feedback="true" inline="true" value="#{registroController.usuarioRegistrar.clave}"/>
+                    </p:column>
+                    <p:column>
+                    <p:message id="m_pwd1" for="pwd1"/>
+                    </p:column>
+                    <p:column><p:watermark for="pwd1" value="Clave secreta"/></p:column>
+                    </p:row>
+                
+                    
+                    
+                    <p:row>
+                    <p:column colspan="4">
+                    <p:captcha label="Captcha" language="es" theme="white" validatorMessage="Palabras incorrectas, Intente de nuevo" requiredMessage="Dígite las palabras de la imagen"/> 
+                    </p:column>
+                    </p:row>
+                    
+                    <f:facet name="footer">
+                        <p:row>
+                        <p:column colspan="4">
+                            <p:commandButton id="reg_button" value="Enviar" action="#{registroController.registrar}"  ajax="false"/>
+                        </p:column>
+                        </p:row>
+                    </f:facet>
+                </p:panelGrid>
+            
+            
+        </h:form>
+        </div>
+    </ui:define>
+
+  </ui:composition>
+</f:view>
+</html>
+

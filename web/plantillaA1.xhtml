@@ -1,0 +1,49 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:sec="http://www.springframework.org/security/facelets/tags"
+     xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+        <meta http-equiv="X-UA-Compatible" content="IE=8, IE=9, IE=10"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title id="title">Paideia Software</title>
+        <link href="#{labels.contexto}/styles/#{applicationController.estiloA1}" rel="stylesheet" type="text/css" />
+        <script lang="JavaScript" type="text/JavaScript" src="#{labels.contexto}/scripts/funciones.js"></script>
+        
+        <f:view id="view1" locale="{generalController.locale}" />
+        </f:facet>
+     </h:head>
+     <h:body>
+        <div id="holder">																																																																																																																																																																																																																																																																											
+            <!--Encabezado-->
+            <div id="top1">
+                Paideia Software
+            </div>
+            <div id="top2">
+                SISTEMA DE SERVICIOS DE TESORERIA. PERÚ
+            </div>
+            <div id="top3">
+            </div>
+            <!-- Fin Encabezado -->
+
+            <!--Contenido-->
+            <div id="contenido">
+                <ui:insert id="nav" name="contenido"></ui:insert>
+            </div>
+            <!-- Fin Contenido -->
+
+            <!--Pie de página-->
+            <div id="bottom">											
+                <ui:insert id="nav" name="pie">
+                    <ui:include src="piepag.xhtml"/>
+                </ui:insert>
+            </div>
+            <!--End Pie de Página-->
+        </div>
+    </h:body>
+</html>
+

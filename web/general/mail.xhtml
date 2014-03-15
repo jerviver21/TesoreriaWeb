@@ -1,0 +1,32 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:view>
+  <ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+        <div style="height: 450px">
+        <h:form id="form">
+            <p:growl id="msgs" />
+            <p:panel header="Ejecutor de sentencias">
+                <p:panelGrid columns="2">
+                    <h:outputLabel value="Destinatario: "/>
+                    <p:inputText id="destinatario" value="#{mailController.datosMail.destinatario}"/>
+                    <h:outputLabel value="Asunto: "/>
+                    <p:inputText id="asunto" value="#{mailController.datosMail.asunto}"/>
+                    <h:outputLabel value="Mensaje:"/>
+                    <p:inputTextarea id="mensaje" value="#{mailController.datosMail.mensaje}"/>
+                    <f:facet name="footer">
+                        <p:commandButton value="Enviar" update="@form" action="#{mailController.enviarMail}"/>
+                    </f:facet>
+                </p:panelGrid>
+
+            </p:panel>
+        </h:form>
+        </div>
+   </ui:define>
+  </ui:composition>
+</f:view>
+</html>
