@@ -14,7 +14,15 @@
         <span class="titulo">Señor Provedor, Ingrese información de su factura</span>
         <br/>
 
+        <p:ajaxStatus style="width:16px;height:16px;" id="ajaxStatusPanel">  
+            <f:facet name="start">  
+                <h:graphicImage value="../images/ajaxloading.gif" />  
+            </f:facet>  
 
+            <f:facet name="complete">  
+                <h:outputText value="" />  
+            </f:facet>  
+        </p:ajaxStatus>
        <h:form id="form" prependId="false">
 
 
@@ -32,7 +40,7 @@
                 <p:row>
                     <p:column><h:outputLabel  value="RUC:" /></p:column>
                     <p:column>
-                        <p:inputText id="ruc" value="#{facturaController.provedor.ruc}" disabled="#{facturaController.disableRuc}">
+                        <p:inputText id="ruc" value="#{facturaController.provedor.ruc}" disabled="#{facturaController.disableRuc}" size="40">
                             <p:ajax update="@form" listener="#{facturaController.consultarProvedor}"/>
                         </p:inputText>
                     </p:column>
@@ -42,7 +50,7 @@
                 <p:row>
                     <p:column><h:outputLabel  value="Razón Social:" /></p:column>
                     <p:column>
-                        <p:inputText id="raz" value="#{facturaController.provedor.razonSocial}" disabled="true">
+                        <p:inputText id="raz" value="#{facturaController.provedor.razonSocial}" disabled="true" size="40">
                             <p:ajax/>
                         </p:inputText>
                     </p:column>
@@ -90,7 +98,7 @@
                 <p:row>
                     <p:column><h:outputLabel  value="Fecha de Emisión:  "/></p:column>
                     <p:column>
-                        <p:calendar id="fechaemision" value="#{facturaController.factura.fechaEmisionFact}" required="true" pattern="yyyy-MM-dd">
+                        <p:calendar id="fechaemision" value="#{facturaController.factura.fechaEmisionFact}" required="true" pattern="yyyy-MM-dd" size="40">
                             <p:ajax event="dateSelect"/>
                         </p:calendar>
                     </p:column>
@@ -101,7 +109,7 @@
                 <p:row>
                     <p:column><h:outputLabel  value="Fecha de Entrega a Empresa:  "/></p:column>
                     <p:column>
-                        <p:calendar id="fechaentrega" value="#{facturaController.factura.fechaEntregaFact}" required="true" pattern="yyyy-MM-dd">
+                        <p:calendar id="fechaentrega" value="#{facturaController.factura.fechaEntregaFact}" required="true" pattern="yyyy-MM-dd" size="40">
                             <p:ajax event="dateSelect"/>
                         </p:calendar>
                     </p:column>
@@ -113,19 +121,19 @@
                 <p:row>
                     <p:column><h:outputLabel  value="No de Factura o Boleta:" /></p:column>
                     <p:column>
-                        <p:inputText id="no_factura" required="true" value="#{facturaController.factura.noFactura}" validatorMessage="El formato valido ej: 00001-0001547 (Rellene con ceros a la izquierda, serie y numero)">
+                        <p:inputText id="no_factura" required="true" value="#{facturaController.factura.noFactura}" size="40" validatorMessage="El formato valido ej: 00001-0001547 (Rellene con ceros a la izquierda, serie y numero)">
                             <f:validateRegex pattern="\s*(\d{5}-\d{7})\s*"/>
                             <p:ajax/>
                         </p:inputText>
                     </p:column>
                     <p:column><p:message for="no_factura"/></p:column>
-                    <p:column><p:watermark value="Ejemplo: 00001-0004587" for="no_factura"/></p:column>
+                    <p:column><p:watermark value="Ejemplo: 00001-0004587 (NoSerie-NoFactura)" for="no_factura"/></p:column>
                 </p:row>
                 
                 <p:row>
                     <p:column><h:outputLabel  value="Monto:" /></p:column>
                     <p:column>
-                        <p:inputText id="monto" required="true" value="#{facturaController.factura.montoTotal}" validatorMessage="El formato valido ej: 500.00">
+                        <p:inputText id="monto" required="true" value="#{facturaController.factura.montoTotal}" size="40" validatorMessage="El formato valido ej: 500.00">
                             <f:validateDoubleRange/>
                             <p:ajax/>
                         </p:inputText>
@@ -134,12 +142,23 @@
                     <p:column><p:watermark value="Ejemplo: 500.00" for="monto"/></p:column>
                 </p:row>
                 
-                <p:row id="rimg">
+                <p:row>
                     <p:column>
                         <h:outputLabel  value="Cargar Soporte en PDF:"/>
                     </p:column>
                     <p:column>
-                        <p:commandButton id="img1" title="Cargar" value="Cargar" icon="ui-icon-arrowthickstop-1-n" oncomplete="dlg_img.show()"/>
+                        <p:commandButton id="img1" title="Cargar" value="Cargar" icon="ui-icon-arrowthickstop-1-n" oncomplete="dlg_img.show()" disabled="#{facturaController.archivoCargado}"/>
+                    </p:column>
+                    <p:column><p:message for="img1"/></p:column>
+                    <p:column><p:message for="img1"/></p:column>
+                </p:row>
+                <p:row>
+                    <p:column>
+                        <h:outputLabel  value="Soporte Cargardo!"/>
+                    </p:column>
+                    <p:column>
+                        <p:graphicImage value="/images/iconoCheck.png" rendered="#{facturaController.archivoCargado}"/>
+                        <p:outputLabel value="NO" rendered="#{!facturaController.archivoCargado}"/>
                     </p:column>
                     <p:column><p:message for="img1"/></p:column>
                     <p:column><p:message for="img1"/></p:column>
@@ -159,7 +178,7 @@
                     <p:panelGrid columns="2">
                         <h:outputLabel value="Cargar"/>
                         <p:fileUpload fileUploadListener="#{facturaController.cargarSoporte}" 
-                                      mode="advanced"  auto="true"
+                                      mode="advanced" update=":form"  auto="true"
                                         allowTypes="/(\.|\/)(pdf)$/" sizeLimit="500000"
                                         label="Seleccionar" oncomplete="dlg_img.hide()"/> 
                     </p:panelGrid>

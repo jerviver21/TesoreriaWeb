@@ -2,12 +2,12 @@ package com.vi.tesoreria.controller;
 
 import com.paideia.tesoreria.dominio.Proveedor;
 import com.paideia.tesoreria.dominio.RegistroFactura;
+import com.paideia.tesoreria.services.FacturaService;
 import com.paideia.tesoreria.services.ProveedorService;
 import com.vi.comun.util.Log;
 import com.vi.locator.ComboLocator;
 import com.vi.usuarios.controller.SessionController;
 import com.vi.usuarios.dominio.Users;
-import com.vi.usuarios.services.UsuariosServices;
 import com.vi.usuarios.services.UsuariosServicesLocal;
 import com.vi.util.FacesUtil;
 import java.util.ArrayList;
@@ -48,16 +48,21 @@ public class FacturaController {
     @EJB
     UsuariosServicesLocal uService;
     
+    @EJB
+    FacturaService fService;
+    
     //Otros objetos necesarios
     ComboLocator comboLocator;
     //Para solicitar actualizacion de datos a usuarios proveedores
     private boolean solicitarActualizacion = false;
     private boolean usrTesorero = false;
+    private boolean archivoCargado = false;
+    Users usr;
     
     @PostConstruct
     public void init(){
         comboLocator = ComboLocator.getInstance();
-        Users usr = ((SessionController)FacesUtil.getManagedBean("#{sessionController}")).getUsuario();
+        usr = ((SessionController)FacesUtil.getManagedBean("#{sessionController}")).getUsuario();
         Set<String> roles = uService.findRolesUser(usr.getUsr());
         setProvedor(pService.findProveedorByRuc(usr.getUsr()));
         setFactura(new RegistroFactura());
@@ -93,6 +98,7 @@ public class FacturaController {
     
     public String guardar(){
         try {
+            fService.guardar(factura, usr.getLicencia().getNoLicencia());
             FacesUtil.addMessage(FacesUtil.INFO,"Factura Cargada con exito!!");
         }catch (Exception e) {
             FacesUtil.addMessage(FacesUtil.ERROR,"Error al guardar la factura");
@@ -108,6 +114,7 @@ public class FacturaController {
         try {
             factura.setExtension(event.getFile().getFileName().replaceAll( ".*\\.(.*)", "$1"));
             factura.setImg(event.getFile().getInputstream());
+            archivoCargado = true;
         } catch (Exception e) {
             FacesUtil.addMessage(FacesUtil.ERROR, "Error al cargar el soporte de la Factura");
             Log.getLogger().log(Level.SEVERE, e.getMessage(), e);
@@ -221,6 +228,20 @@ public class FacturaController {
      */
     public List<SelectItem> getCuentas() {
         return cuentas;
+    }
+
+    /**
+     * @return the archivoCargado
+     */
+    public boolean isArchivoCargado() {
+        return archivoCargado;
+    }
+
+    /**
+     * @param archivoCargado the archivoCargado to set
+     */
+    public void setArchivoCargado(boolean archivoCargado) {
+        this.archivoCargado = archivoCargado;
     }
 
 }

@@ -12,6 +12,15 @@
         <ui:composition template="../#{applicationController.plan3}">
             <ui:define name="contenido">
                 <div style="height: 1000px">
+                    <p:ajaxStatus style="width:16px;height:16px;" id="ajaxStatusPanel">  
+                        <f:facet name="start">  
+                            <h:graphicImage value="../images/ajaxloading.gif" />  
+                        </f:facet>  
+
+                        <f:facet name="complete">  
+                            <h:outputText value="" />  
+                        </f:facet>  
+                    </p:ajaxStatus>
                     <h:form>  
                         <p:messages id="messages"/>  
 
