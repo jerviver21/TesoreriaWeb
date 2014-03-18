@@ -28,7 +28,8 @@
 
             <p:messages id="msgs" />  
 
-            <h:link rendered="#{facturaController.solicitarActualizacion}"  
+            <h:outputLabel rendered="#{facturaController.solicitarActualizacion}"  value="Para Cargar Factura Primero Actualice su Información"/>
+            <h:link rendered="#{facturaController.solicitarActualizacion}"  value="Aquí"
                     outcome="/tesoreria/datos_provedor.xhtml"/>
             <br/>
             <p:panelGrid style="margin-top:20px" rendered="#{!facturaController.solicitarActualizacion}">
@@ -121,8 +122,8 @@
                 <p:row>
                     <p:column><h:outputLabel  value="No de Factura o Boleta:" /></p:column>
                     <p:column>
-                        <p:inputText id="no_factura" required="true" value="#{facturaController.factura.noFactura}" size="40" validatorMessage="El formato valido ej: 00001-0001547 (Rellene con ceros a la izquierda, serie y numero)">
-                            <f:validateRegex pattern="\s*(\d{5}-\d{7})\s*"/>
+                        <p:inputText id="no_factura" required="true" value="#{facturaController.factura.serieNoFactura}" size="40" validatorMessage="El formato valido ej: 00001-0001547 (Rellene con ceros a la izquierda, serie y numero)">
+                            <f:validateRegex pattern="\s*(\d+-\d+)\s*"/>
                             <p:ajax/>
                         </p:inputText>
                     </p:column>

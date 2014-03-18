@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:sec="http://www.springframework.org/security/facelets/tags">
+<f:view>
+<ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+        <div style="height: 600px; overflow-y: scroll">
+        <h:form id="form" >
+            <br/>
+            <span class="titulo">Soporte de la Factura!</span>
+            <br/>
+            
+            <p:media value="#{consultaFactController.factura.urlSoporte}" width="100%" height="300px">  
+                Si no puede ver el PDF, <h:outputLink value="#{consultaFactController.factura.urlSoporte}">click</h:outputLink> para descargar el pdf.  
+            </p:media>  
+
+        </h:form>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+

@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:sec="http://www.springframework.org/security/facelets/tags">
+<f:view>
+<ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+        <div style="height: 600px; overflow-y: scroll">
+        <h:form id="form" >
+            <br/>
+            <span class="titulo">Información de Detraccion!</span>
+            <br/>
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Comprobante:"/>
+                <h:outputText value="#{consultaFactController.pago.detraccion.comprobante}"/>
+                
+                <p:outputLabel value="Fecha de Pago:"/>
+                <h:outputText value="#{consultaFactController.pago.detraccion.fechaPago}">
+                    <f:convertDateTime type="date" pattern="yyyy-MM-dd"/>
+                </h:outputText>
+                
+                <p:outputLabel value="Importe:"/>
+                <h:outputText value="#{consultaFactController.pago.detraccion.importe}"/>
+               
+                <p:outputLabel value="Periodo Tributario:"/>
+                <h:outputText value="#{consultaFactController.pago.detraccion.periodoTributario}"/>
+            
+            </p:panelGrid>
+        </h:form>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+

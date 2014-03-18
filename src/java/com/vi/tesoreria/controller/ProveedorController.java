@@ -64,10 +64,7 @@ public class ProveedorController {
             usr.setNumId(provedor.getRuc());
             uService.edit(usr);
             FacesUtil.addMessage(FacesUtil.INFO,"Provedor guardado con exito!!");
-            FacturaController fController = (FacturaController)FacesUtil.getManagedBean("#{facturaController}");
-            if(fController != null){
-                fController.setSolicitarActualizacion(false);
-            }
+            FacesUtil.restartBean("facturaController");
         }catch (Exception e) {
             FacesUtil.addMessage(FacesUtil.ERROR,"Error al guardar el provedor");
             Log.getLogger().log(Level.SEVERE, e.getMessage(), e);

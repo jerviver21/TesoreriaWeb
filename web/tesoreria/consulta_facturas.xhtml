@@ -1,0 +1,81 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:sec="http://www.springframework.org/security/facelets/tags">
+<f:view>
+<ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+        <div style="height: 600px; overflow-y: scroll">
+        <h:form id="form" >
+            <br/>
+            <span class="titulo">Información de Facturas!</span>
+            <br/>
+            <sec:ifAnyGranted roles="TESORERO">
+                <p:panelGrid columns="3">
+                    <p:outputLabel value="RUC:"/>
+                    <p:inputText value="#{consultaFactController.ruc}"/>
+                    <p:commandButton action="#{consultaFactController.consultarRuc}" value="Buscar" update="@form"/>
+                    <p:outputLabel value="No Factura:"/>
+                    <p:inputText value="#{consultaFactController.no}"/>
+                    <p:commandButton action="#{consultaFactController.consultarFactura}" value="Buscar" update="@form"/>
+                    <p:outputLabel value="Vence en No días:"/>
+                    <p:inputText value="#{consultaFactController.noDias}"/>
+                    <p:commandButton action="#{consultaFactController.consultarFacturaPorVencer}" value="Buscar" update="@form"/>
+                </p:panelGrid>
+            </sec:ifAnyGranted>
+            <br/>
+            <p:panel header="Facturas:">
+                    <p:dataTable value="#{consultaFactController.facturas}" var="factura" paginator="true"
+                                 rows="20"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                 paginatorPosition="top"
+                                 paginatorAlwaysVisible="false"
+                                 rowStyleClass="#{factura.noDiasVence eq 0 ? 'rojo' : (factura.noDiasVence le 2 ? 'amarillo' : null)}">
+                        <p:column headerText="RUC"  filterBy="#{factura.proveedor.ruc}" id="ruc">
+                            <h:outputText value="#{factura.proveedor.ruc}"/>
+                        </p:column>
+                        <p:column headerText="Razon Social">
+                            <h:outputText value="#{factura.proveedor.razonSocial}"/>
+                        </p:column>
+                        <p:column headerText="Monto Total" filterBy="#{factura.montoTotal}" id="monto">
+                            <h:outputText value="#{factura.montoTotal}"/>
+                        </p:column>
+                        <p:column headerText="Estado" filterBy="#{factura.estado.nombre}" id="estado" >
+                            <h:outputText value="#{factura.estado.nombre}"/>
+                        </p:column>
+                        <p:column headerText="No Factura">
+                            <h:outputText value="#{factura.numFactura}"/>
+                        </p:column>
+                        <p:column headerText="Fecha Vencimiento"  >
+                            <h:outputText value="#{factura.fechaVencimiento}">
+                                <f:convertDateTime type="date" pattern="yyyy-MM-dd"/>
+                            </h:outputText>
+                        </p:column>
+                        <p:column headerText="Soporte">
+                            <p:commandLink action="#{consultaFactController.navFactura(factura)}" value="Consultar Soporte" 
+                                           rendered="#{factura.urlSoporte ne null}" ajax="false"/>
+                            <h:outputText value="SIN SOPORTE" rendered="#{factura.urlSoporte eq null}"/>
+                        </p:column>
+                        <p:column headerText="Pago">
+                            <p:commandLink action="#{consultaFactController.navPago(factura.registroPago)}" value="Consultar Pago" 
+                                           rendered="#{factura.registroPago ne null}" ajax="false"/>
+                            <h:outputText value="SIN PAGO" rendered="#{factura.registroPago eq null}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            
+                <p:dialog widgetVar="dlg_img" modal="true" showEffect="fade" hideEffect="explode" width="780" height="300">
+                    <p:media value="/resources/other/guide.pdf" width="100%" height="300px">  
+                        Si no puede ver el PDF, <h:outputLink value="/resources/other/guide.pdf">click</h:outputLink> para descargar el pdf.  
+                    </p:media>  
+                </p:dialog>
+
+        </h:form>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+

@@ -72,6 +72,9 @@ public class FacturaController {
         if(provedor != null){
             getFactura().setProveedor(getProvedor());
             cuentas = FacesUtil.getSelectsItem(provedor.getCuentas());
+            if(!provedor.getInfoActualizada()){
+               solicitarActualizacion = true;
+            }
         }else if(!roles.contains("TESORERO")){
             solicitarActualizacion = true;
         }
