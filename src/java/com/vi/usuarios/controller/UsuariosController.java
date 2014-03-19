@@ -38,15 +38,19 @@ public class UsuariosController {
     UsuariosServicesLocal usersServices;
     @EJB
     GruposServicesLocal gruposServices;
+    
+    //Usuario Autenticado
+    Users usrAutenticado;
 
     @PostConstruct
     public void init(){
+        usrAutenticado = ((SessionController)FacesUtil.getManagedBean("#{sessionController}")).getUsuario();
         setUsuario(new Users());
         usuario.setPwd("");
         locator = ComboLocator.getInstance();
         setGrupos(gruposServices.findAll());
         if(usuarios == null){
-            setUsuarios(usersServices.findAll());
+            setUsuarios(usersServices.findUsersByLicencia(usrAutenticado.getLicencia()));
         }
         
         if(!grupos.isEmpty()){
@@ -73,7 +77,7 @@ public class UsuariosController {
             usuario.setGrupos(gruposUsuarios);
             usuario.setEstado(1);
             usuario.setPwd(SpringUtils.getPasswordEncoder().encodePassword(usuario.getPwd(), null));
-            System.out.println("EAntes de guardar: "+getUsuario().getId());
+            usuario.setLicencia(usrAutenticado.getLicencia());
             usersServices.edit(getUsuario());
             setUsuarios(usersServices.findAll());
             FacesUtil.addMessage(FacesUtil.INFO, "Usuario guardado con exito");

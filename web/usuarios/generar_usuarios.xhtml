@@ -1,0 +1,33 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     >
+
+
+    <f:view>
+
+        <ui:composition template="../#{applicationController.plan3}">
+            <ui:define name="contenido">
+                <div style="height: 450px">
+                <h:form id="formId" prependId="false">
+                    <p:growl id="msgs" life="15000"/>
+                    
+                    <p:outputLabel value="Cargue archivo CSV con rucs de proveedores:"/>
+                    <p:fileUpload fileUploadListener="#{masivoController.cargar}" mode="advanced" dragDropSupport="false"  
+                                       multiple="false" update="@form" sizeLimit="500000" fileLimit="1" allowTypes="/(\.|\/)(txt|csv)$/" />  
+                        
+                    <br/>
+
+                    <p:commandLink value="#{labels.descargar}" ajax="false" title="Download" actionListener="#{masivoController.descargar}" rendered="#{masivoController.renderDownload}">
+                          <p:fileDownload value="#{masivoController.file}"/>
+                    </p:commandLink>
+                </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+
+</html>

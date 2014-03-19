@@ -24,7 +24,7 @@
                         <p:row>
                             <p:column><h:outputLabel  value="RUC:" /></p:column>
                             <p:column>
-                                <p:inputText id="ruc" value="#{provedorController.provedor.ruc}" disabled="#{provedorController.disableRuc}">
+                                <p:inputText id="ruc" size="40" value="#{provedorController.provedor.ruc}" disabled="#{provedorController.disableRuc}">
                                     <p:ajax update="@form" listener="#{provedorController.consultarProvedor}"/>
                                 </p:inputText>
                             </p:column>
@@ -34,7 +34,7 @@
                         <p:row>
                             <p:column><h:outputLabel  value="Razón Social:" /></p:column>
                             <p:column>
-                                <p:inputText id="raz" value="#{provedorController.provedor.razonSocial}">
+                                <p:inputText id="raz" size="40" value="#{provedorController.provedor.razonSocial}">
                                     <p:ajax/>
                                 </p:inputText>
                             </p:column>
@@ -44,7 +44,7 @@
                         <p:row>
                             <p:column><h:outputLabel  value="No Cuenta de Detracción:" /></p:column>
                             <p:column>
-                                <p:inputText id="no_cuenta_detra" value="#{provedorController.provedor.noCuentaDetraccion}">
+                                <p:inputText id="no_cuenta_detra" size="40" value="#{provedorController.provedor.noCuentaDetraccion}">
                                     <p:ajax/>
                                 </p:inputText>
                             </p:column>
@@ -54,7 +54,7 @@
                         <p:row>
                             <p:column><h:outputLabel  value="Persona de Contacto:" /></p:column>
                             <p:column>
-                                <p:inputText id="persona" value="#{provedorController.provedor.personaContacto}">
+                                <p:inputText id="persona" size="40" value="#{provedorController.provedor.personaContacto}">
                                     <p:ajax/>
                                 </p:inputText>
                             </p:column>
@@ -64,7 +64,7 @@
                         <p:row>
                             <p:column><h:outputLabel  value="Telefono Fijo:" /></p:column>
                             <p:column>
-                                <p:inputText id="fijo" value="#{provedorController.provedor.telefonoFijo}">
+                                <p:inputText id="fijo" size="40" value="#{provedorController.provedor.telefonoFijo}">
                                     <p:ajax/>
                                 </p:inputText>
                             </p:column>
@@ -74,7 +74,7 @@
                         <p:row>
                             <p:column><h:outputLabel  value="Telefono Celular:" /></p:column>
                             <p:column>
-                                <p:inputText id="movil" value="#{provedorController.provedor.telefonoCelular}">
+                                <p:inputText id="movil" size="40" value="#{provedorController.provedor.telefonoCelular}">
                                     <p:ajax/>
                                 </p:inputText>
                             </p:column>
@@ -84,7 +84,7 @@
                         <p:row>
                             <p:column><h:outputLabel  value="Correo Electrónico:" /></p:column>
                             <p:column>
-                                <p:inputText id="mail" value="#{provedorController.provedor.email}">
+                                <p:inputText id="mail" size="40" value="#{provedorController.provedor.email}">
                                     <p:ajax/>
                                 </p:inputText>
                             </p:column>

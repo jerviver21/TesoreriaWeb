@@ -1,6 +1,8 @@
 
 package com.vi.usuarios.controller;
 
+import com.paideia.tesoreria.dominio.Empresa;
+import com.paideia.tesoreria.services.EmpresaService;
 import com.vi.comun.util.Log;
 import com.vi.usuarios.dominio.Users;
 import com.vi.usuarios.services.UsuariosServicesLocal;
@@ -23,8 +25,9 @@ import javax.persistence.NoResultException;
 @SessionScoped
 public class RegistroController {
     @EJB
-    private UsuariosServicesLocal service;
+    private EmpresaService service;
     private Users usuarioRegistrar;
+    private Empresa empresa;
     
     private boolean linkIngreso = false;
 
@@ -35,58 +38,25 @@ public class RegistroController {
     @PostConstruct
     public void init(){
         usuarioRegistrar = new Users();
+        empresa = new Empresa();
     }
 
     
     public String registrar(){
         try {
             usuarioRegistrar.setPwd(SpringUtils.getPasswordEncoder().encodePassword(usuarioRegistrar.getClave(), null));
-            service.registrar(usuarioRegistrar, "USUARIOS",  true );
-            FacesUtil.addMessage(FacesUtil.INFO,"Enviamos su nro de usuario a su email "+usuarioRegistrar.getUsr()+", consultelo y activelo!");
-            setLinkIngreso(true);
+            service.registrarEmpresa(empresa, usuarioRegistrar);
+            FacesUtil.addMessage(FacesUtil.INFO,"Revisaremos sus datos y nos pondremos en contacto, para darle a conocer esta herramienta!");
         } catch (Exception e) {
             FacesUtil.addMessage(FacesUtil.ERROR,"Error al crear el usuario!");
             Log.getLogger().log(Level.SEVERE, e.getMessage(), e);
             return "/registro.xhtml";
         }
-        return "/registro.xhtml";
-    }
-    
-    public String activar(){
-        
-        try {
-           Users usuario = service.activar(nroUsuario);
-           mensaje = "Usuario: "+usuario.getUsr()+". Activado!! Bienvenido al Sistema de Clasificados, La forma más fácil y rápida de publicar sus clasificados ";
-           activado = true;
-        } catch (EJBException e) {
-            if(e.getCause() instanceof NoResultException){
-                FacesUtil.addMessage(FacesUtil.ERROR,"No existe el nro de usuario "+nroUsuario+", verifique el número enviado a su email");
-            }else{
-                FacesUtil.addMessage(FacesUtil.ERROR,"Error al activar la licencia! "+e.getMessage());
-            }
-            Log.getLogger().log(Level.SEVERE, e.getMessage(), e);
-            return null;
-        }catch (Exception e) {
-            FacesUtil.addMessage(FacesUtil.ERROR,"Error al activar la licencia! "+e.getMessage());
-            Log.getLogger().log(Level.SEVERE, e.getMessage(), e);
-            return null;
-        }
-        
-        
-        return null;
+        return "/index.xhtml";
     }
     
     
-    public void dispUsuario(){
-        FacesContext fc = FacesContext.getCurrentInstance();
-        if(!service.isUsuarioDisponible(usuarioRegistrar.getUsr())){
-            System.out.println("Email previamente registrado");
-            FacesMessage fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Este email ya se encuentra registrado!");
-            fc.addMessage("form1:mail", fm);
-        }
-    }
-    
-    
+        
 
     /**
      * @return the usuarioRegistrar
@@ -157,6 +127,20 @@ public class RegistroController {
      */
     public void setNroUsuario(String nroUsuario) {
         this.nroUsuario = nroUsuario;
+    }
+
+    /**
+     * @return the empresa
+     */
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    /**
+     * @param empresa the empresa to set
+     */
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
     }
 
     

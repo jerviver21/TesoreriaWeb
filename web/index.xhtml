@@ -10,7 +10,7 @@
     <ui:define name="contenido">
         <div style="height: 450px">
         <h:form id="form0" prependId="false">
-            <p:growl id="msgs"/>
+            <p:growl id="msgs" life="4000"/>
             <h:outputLabel id="error_msg" value="#{loginController.mensaje} " style="color: red"  />
             <h:link value="#{loginController.link}" outcome="#{loginController.urlLicencia}" rendered="#{loginController.urlLicencia ne null}"/>
             <br/>
@@ -18,7 +18,7 @@
             <p:panelGrid columns="3">
                 <p:outputLabel  value="E-mail: "/>
                 <p:inputText id="j_username"  size="30"/>
-                <p:watermark value="Digite su e-mail" for="j_username"/>
+                <p:watermark value="Digite su usuario (ruc - para proveedores)" for="j_username"/>
                 
                 <p:outputLabel  value="Clave: "/>
                 <p:password id="j_password" size="30" feedback="false"/>
@@ -29,9 +29,9 @@
                 </f:facet>
             </p:panelGrid>
             <br/>
-            <!--<h:link id="link1" outcome="/registro/olvida_clave.xhtml" value="¿Olvidó su clave?"/>
+            <h:outputLabel value="Desea administrar el pago a sus proveedores, detracciones automaticamente, haga click "/>
             <p:spacer width="15"/>
-            <h:link id="link2" outcome="/registro/registro.xhtml" value="Regístrate"/>-->
+            <h:link id="link2" outcome="/registro/registro.xhtml" value="Aquí"/>
 
         </h:form>
 

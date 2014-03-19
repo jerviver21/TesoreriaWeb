@@ -54,6 +54,9 @@ public class ProveedorController {
         setProvedor(pService.findProveedorByRuc(usr.getUsr()));
         if(provedor == null){
             provedor = new Proveedor();
+            if(!tesorero){
+                provedor.setRuc(usr.getUsr());
+            }
         }
         cuenta = new CuentasProveedor();
     }
