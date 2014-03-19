@@ -1,0 +1,46 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     >
+
+
+    <f:view>
+
+        <ui:composition template="../#{applicationController.plan3}">
+            <ui:define name="contenido">
+                <div style="height: 10000px">
+                    <h:form>  
+                        <p:growl id="messages" life="20000"/> 
+                        
+                        Advertencia!
+                        <br/>
+                        Para que al cargar los comprobantes se puedan enlazar no modifique el nombre del archivo!
+                        <br/>
+                        
+                        <h:outputLabel value="Consecutivo del Lote:"/>
+                        <h:inputText value="#{detraController.empresa.consecutivo}"/>
+                       
+                        
+                        <br/>
+                        <p:outputLabel value="Cargue el Archivo de Detracciones:"/>
+                        <p:fileUpload fileUploadListener="#{detraController.cargarArchivoEmpresa}" mode="advanced" dragDropSupport="false"  
+                                       multiple="true" update="@form" sizeLimit="500000" fileLimit="1" allowTypes="/(\.|\/)(txt|csv)$/" />  
+
+                        <br/>
+                        
+                        <br/>
+
+                        <p:commandLink value="#{labels.descargar}" ajax="false" title="Download" actionListener="#{detraController.descargar}" rendered="#{detraController.renderDownload}">
+                              <p:fileDownload value="#{detraController.file}"/>
+                        </p:commandLink>
+                          
+                     </h:form>  
+                </div>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+
+</html>

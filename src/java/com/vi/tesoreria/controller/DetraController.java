@@ -5,18 +5,25 @@
 package com.vi.tesoreria.controller;
 
 
+import com.paideia.tesoreria.dominio.Detraccion;
+import com.paideia.tesoreria.dominio.Empresa;
 import com.paideia.tesoreria.services.DetraService;
+import com.paideia.tesoreria.services.EmpresaService;
 import com.vi.locator.ComboLocator;
+import com.vi.usuarios.controller.SessionController;
+import com.vi.usuarios.dominio.Users;
 import com.vi.util.FacesUtil;
+import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.model.SelectItem;
+import javax.faces.event.ActionEvent;
 import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
 /**
  *
@@ -29,104 +36,143 @@ public class DetraController {
     
     @EJB
     DetraService service;
+    @EJB
+    EmpresaService eService;
     
-    //private List<Detracciones> registros = new ArrayList<Detracciones>();
-    private List<SelectItem> adquirientes;
     private ComboLocator locator;
-    
-    
-    //private Adquiriente adq;
-    private int periodo;
+
     String nombreArchivo;
+    
+    private Users usr;
+    private Empresa empresa;
+    
+    
+    private List<Detraccion> comprobantes = new ArrayList<Detraccion>();
+    
+
+    //Para permitir la descarga de archivos
+    private String rutaArchivo;
+    private StreamedContent file;
+    private boolean renderDownload = false;
     
     @PostConstruct
     public void init(){
-        Calendar calendario = Calendar.getInstance();
-        //setAdq(new Adquiriente(2l));
-        setPeriodo(Integer.parseInt(calendario.get(Calendar.YEAR)+""+String.format("%02d",calendario.get(Calendar.MONTH)+1)));
         locator = ComboLocator.getInstance();
-        adquirientes = FacesUtil.getSelectsItem(locator.getDataForCombo(ComboLocator.COMB_ID_ADQ));
+        usr = ((SessionController)FacesUtil.getManagedBean("#{sessionController}")).getUsuario();
+        empresa = eService.findEmpresaByLicencia(usr.getLicencia().getNoLicencia());
     }
     
-    
-     public void cargar(FileUploadEvent event) {
+     public void cargarArchivoEmpresa(FileUploadEvent event) {
          try {
-             nombreArchivo = event.getFile().getFileName();
-             //registros = service.cargar(event.getFile().getInputstream(), event.getFile().getFileName(), getAdq(), getPeriodo());
+             rutaArchivo = service.generarDetracciones(event.getFile().getInputstream(), event.getFile().getFileName(), empresa);
+             renderDownload = true;
          } catch (Exception e) {
              FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
              e.printStackTrace();
          }
     }  
      
-    public String cargarInfoBD() {
-         /*try {
-             int i = 0;
-             for(Detracciones detraccion : registros){
-                 if(detraccion.getSerieFact().equals("X")){
-                     FacesUtil.addMessage(FacesUtil.ERROR, "Error: Edite no serie factura valido, en Fila: "+i+" - "+detraccion.getIdProveedor().getRazonSocial());
-                     return null;
-                 }
-                 if(detraccion.getCorFact().equals("X")){
-                     FacesUtil.addMessage(FacesUtil.ERROR, "Error: Edite un correlativo de factura valido, en Fila: "+i+" - "+detraccion.getIdProveedor().getRazonSocial());
-                     return null;
-                 }
-                 
-                 if(detraccion.getCodOperacion().length() != 2 || detraccion.getCodOperacion().equals("X")){
-                     FacesUtil.addMessage(FacesUtil.ERROR, "Error: Hay un codigo de operacion con longitud incorrecta en Fila: "+i+" - "+detraccion.getIdProveedor().getRazonSocial());
-                     return null;
-                 }
-                 if(detraccion.getCodServicio().length() != 3 || detraccion.getCodServicio().equals("X")){
-                     FacesUtil.addMessage(FacesUtil.ERROR, "Error: Hay un codigo de servicio con longitud incorrecta en Fila: "+i+" - "+detraccion.getIdProveedor().getRazonSocial());
-                     return null;
-                 }
-                 
-                 if(detraccion.getIdProveedor().getNoCuenta().length() != 11){
-                     FacesUtil.addMessage(FacesUtil.ERROR, "Error: Hay un numero de cuenta con longitud incorrecta en Fila: "+i+" - "+detraccion.getIdProveedor().getRazonSocial());
-                     return null;
-                 }
-                 
-                 if(detraccion.getIdProveedor().getRuc().length() != 11){
-                     FacesUtil.addMessage(FacesUtil.ERROR, "Error: Hay un RUC con longitud incorrecta en Fila: "+i+" - "+detraccion.getIdProveedor().getRazonSocial());
-                     return null;
-                 }
-                 i++;
-             }
-             
-             service.guardarInfoBD(registros, adq, nombreArchivo);
-             registros = new ArrayList<Detracciones>();
-             FacesUtil.addMessage(FacesUtil.INFO, "Información cargada con exito ");
+    public void cargarArchDetracciones(FileUploadEvent event) {
+         try {
+             //Temporalmente se utiliza sólo para cargar numeros de cuenta de banco de la nación
+             service.cargarCuentas(event.getFile().getInputstream(), event.getFile().getFileName(), usr.getLicencia().getNoLicencia());
          } catch (Exception e) {
              FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
              e.printStackTrace();
-         }*/
+         }
+    } 
+     
+    public void cargarComprobantes(FileUploadEvent event) {
+         try {
+             comprobantes = service.cargarComprobantes(event.getFile().getInputstream(), event.getFile().getFileName());
+         } catch (Exception e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
+             e.printStackTrace();
+         }
+    } 
+     
+     
+    public void descargar(ActionEvent evt)throws Exception{
         
-         return null;
+        try {
+                if(rutaArchivo == null){
+                    setRenderDownload(false);
+                    return;
+                }
+                FileInputStream stream = new FileInputStream(rutaArchivo);
+                setFile(new DefaultStreamedContent(stream, "application/csv", rutaArchivo.replaceAll(".*/(.*)", "$1")));
+                setRenderDownload(false);
+
+         } catch (Exception e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
+             e.printStackTrace();
+         }
+        
     } 
     
 
-
-
     /**
-     * @return the adquiriente
+     * @return the comprobantes
      */
-    public List<SelectItem> getAdquirientes() {
-        return adquirientes;
+    public List<Detraccion> getComprobantes() {
+        return comprobantes;
     }
 
+    /**
+     * @return the rutaArchivo
+     */
+    public String getRutaArchivo() {
+        return rutaArchivo;
+    }
+
+    /**
+     * @param rutaArchivo the rutaArchivo to set
+     */
+    public void setRutaArchivo(String rutaArchivo) {
+        this.rutaArchivo = rutaArchivo;
+    }
+
+    /**
+     * @return the file
+     */
+    public StreamedContent getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(StreamedContent file) {
+        this.file = file;
+    }
+
+    /**
+     * @return the renderDownload
+     */
+    public boolean isRenderDownload() {
+        return renderDownload;
+    }
+
+    /**
+     * @param renderDownload the renderDownload to set
+     */
+    public void setRenderDownload(boolean renderDownload) {
+        this.renderDownload = renderDownload;
+    }
+
+    /**
+     * @return the empresa
+     */
+    public Empresa getEmpresa() {
+        return empresa;
+    }
+
+    /**
+     * @param empresa the empresa to set
+     */
+    public void setEmpresa(Empresa empresa) {
+        this.empresa = empresa;
+    }
     
-    /**
-     * @return the periodo
-     */
-    public int getPeriodo() {
-        return periodo;
-    }
-
-    /**
-     * @param periodo the periodo to set
-     */
-    public void setPeriodo(int periodo) {
-        this.periodo = periodo;
-    }
     
 }

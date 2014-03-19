@@ -1,0 +1,260 @@
+SISTEMA DE PAGO DE OBLIGACIONES TRIBUTARIAS (SPOT)
+CONSTANCIA DE DEPOSITO MASIVO
+
+Datos de cabecera
+
+Numero de operacion	192042414
+Fecha y hora de pago	27/02/2014 22:24:47.0
+Archivo             	D20166012687140001.txt
+Lote                	140001
+RUC Adquiriente     	20166012687
+Nombre Adquiriente	ODEBRECHT PERU INGENIERIA Y CONSTRUCCION S.A.C.
+Numero de depositos	22
+Monto total        	62797.00
+
+
+Datos de detalle
+
+Numero de constancia	28206319
+RUC Proveedor     	20509550957
+Nombre Proveedor	AGREGADOS CARAPONGO E.I.R.L.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	009
+Nombre bien o servicio	Arena y piedra                          
+Monto deposito  	86.00
+Periodo Tributario  	201401
+
+
+Numero de constancia	28206320
+RUC Proveedor     	20509550957
+Nombre Proveedor	AGREGADOS CARAPONGO E.I.R.L.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	009
+Nombre bien o servicio	Arena y piedra                          
+Monto deposito  	86.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206321
+RUC Proveedor     	20117920144
+Nombre Proveedor	SECURITAS S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	3804.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206322
+RUC Proveedor     	20417573705
+Nombre Proveedor	TECNO FAST S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	619.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206323
+RUC Proveedor     	20507850091
+Nombre Proveedor	GESTION DE SERVICIOS AMBIENTALES S.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	022
+Nombre bien o servicio	Otros servicios empresariales           
+Monto deposito  	348.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206324
+RUC Proveedor     	20507850091
+Nombre Proveedor	GESTION DE SERVICIOS AMBIENTALES S.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	022
+Nombre bien o servicio	Otros servicios empresariales           
+Monto deposito  	304.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206325
+RUC Proveedor     	20522894240
+Nombre Proveedor	INVERSIONES YAKU SOCIEDAD COMERCIAL
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	037
+Nombre bien o servicio	Demás Servicios gravados con el IGV     
+Monto deposito  	784.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206326
+RUC Proveedor     	20521937531
+Nombre Proveedor	OR MAQUINARIAS S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	1539.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206327
+RUC Proveedor     	20485934538
+Nombre Proveedor	RAVELZA SERVICIOS Y TRANSPORTES EIR
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	11884.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206328
+RUC Proveedor     	20517953262
+Nombre Proveedor	SERVICIOS GENERALES LID S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	3090.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206329
+RUC Proveedor     	20101158927
+Nombre Proveedor	TRANSBER S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	2478.00
+Periodo Tributario  	201401
+
+
+Numero de constancia	28206330
+RUC Proveedor     	20508627638
+Nombre Proveedor	W.T. PERU S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	10417.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206331
+RUC Proveedor     	20550780501
+Nombre Proveedor	CORPORACION CONSTRUCTORA MULTISERVI
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	1360.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206332
+RUC Proveedor     	20515718860
+Nombre Proveedor	ALO GROUP PERU S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	2414.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206333
+RUC Proveedor     	20173074108
+Nombre Proveedor	SNC LAVALIN PERU S.A.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	022
+Nombre bien o servicio	Otros servicios empresariales           
+Monto deposito  	6901.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206334
+RUC Proveedor     	20547039531
+Nombre Proveedor	RAGALSA E.I.R.L
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	019
+Nombre bien o servicio	Arrendamiento de bienes                 
+Monto deposito  	2992.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206335
+RUC Proveedor     	20166018022
+Nombre Proveedor	CORPORACION PANASERVICE SAC
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	022
+Nombre bien o servicio	Otros servicios empresariales           
+Monto deposito  	13381.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206336
+RUC Proveedor     	20508627638
+Nombre Proveedor	W.T. PERU S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	027
+Nombre bien o servicio	Transporte de Carga                     
+Monto deposito  	173.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206337
+RUC Proveedor     	20522451097
+Nombre Proveedor	ZYNERGYS INGENIERÍA INNOVADORA S.A.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	027
+Nombre bien o servicio	Transporte de Carga                     
+Monto deposito  	33.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206338
+RUC Proveedor     	20101158927
+Nombre Proveedor	TRANSBER S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	027
+Nombre bien o servicio	Transporte de Carga                     
+Monto deposito  	34.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206339
+RUC Proveedor     	20101158927
+Nombre Proveedor	TRANSBER S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	027
+Nombre bien o servicio	Transporte de Carga                     
+Monto deposito  	39.00
+Periodo Tributario  	201402
+
+
+Numero de constancia	28206340
+RUC Proveedor     	20101158927
+Nombre Proveedor	TRANSBER S.A.C.
+Codigo operacion	01
+Nombre operacion	Venta de bienes o prestación de servicio
+Codigo bien o servicio	027
+Nombre bien o servicio	Transporte de Carga                     
+Monto deposito  	31.00
+Periodo Tributario  	201402
+
+
+
