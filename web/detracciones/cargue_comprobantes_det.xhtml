@@ -15,9 +15,11 @@
                 <h:form id="formId" prependId="false">
                     <p:growl id="msgs" life="15000"/>
                     
-                    <p:outputLabel value="Cargue archivo CSV con rucs de proveedores:"/>
-                    <p:fileUpload fileUploadListener="#{detraController.cargarComprobantes(event)}" mode="advanced" dragDropSupport="false"  
-                                       multiple="false" update="@form" sizeLimit="500000" fileLimit="1" allowTypes="/(\.|\/)(txt|csv)$/" />  
+                    <p:outputLabel value="Cargue comprobante de Pago de detracción:"/>
+                    <p:fileUpload fileUploadListener="#{detraController.cargarComprobantes}" mode="advanced" 
+                                  dragDropSupport="false"  
+                                       multiple="false" update="@form" sizeLimit="500000" 
+                                       fileLimit="1" allowTypes="/(\.|\/)(txt|csv)$/" />  
                       
                     
                     <br/>

@@ -40,6 +40,10 @@ public class ProveedorController {
     //Otros objetos necesarios
     ComboLocator comboLocator;
     
+    //Para cargar cuenta de detraccion
+    private String ruc;
+    private String cuentaDetra;
+    
     boolean tesorero = false;
     
     
@@ -99,7 +103,7 @@ public class ProveedorController {
             FacesUtil.addMessage(FacesUtil.ERROR,"Error al guardar cuenta");
             Log.getLogger().log(Level.SEVERE, e.getMessage(), e);
         }
-        return "/tesoreria/datos_provedor.xhtml";
+        return "/proveedores/datos_provedor.xhtml";
     }
     
     public String borrarCuenta(CuentasProveedor cb){
@@ -132,7 +136,18 @@ public class ProveedorController {
     }
     
     public String goCuenta(){
-        return "/tesoreria/cuenta_proveedor.xhtml";
+        return "/proveedores/cuenta_proveedor.xhtml";
+    }
+    
+    public String cargarCuentaDetra(){
+        try {
+            pService.guardarCuentaDetraccion(ruc, cuentaDetra);
+            FacesUtil.addMessage(FacesUtil.INFO,"Cuenta guardada con exito");
+        }catch (Exception e) {
+            FacesUtil.addMessage(FacesUtil.ERROR,"Error al guardar el provedor");
+            Log.getLogger().log(Level.SEVERE, e.getMessage(), e);
+        }
+        return null;
     }
     
 
@@ -169,6 +184,34 @@ public class ProveedorController {
      */
     public String getDisableRuc() {
         return tesorero?"false":"true";
+    }
+
+    /**
+     * @return the cuentaDetra
+     */
+    public String getCuentaDetra() {
+        return cuentaDetra;
+    }
+
+    /**
+     * @param cuentaDetra the cuentaDetra to set
+     */
+    public void setCuentaDetra(String cuentaDetra) {
+        this.cuentaDetra = cuentaDetra;
+    }
+
+    /**
+     * @return the ruc
+     */
+    public String getRuc() {
+        return ruc;
+    }
+
+    /**
+     * @param ruc the ruc to set
+     */
+    public void setRuc(String ruc) {
+        this.ruc = ruc;
     }
 
 

@@ -9,6 +9,7 @@ import com.paideia.tesoreria.dominio.Detraccion;
 import com.paideia.tesoreria.dominio.Empresa;
 import com.paideia.tesoreria.services.DetraService;
 import com.paideia.tesoreria.services.EmpresaService;
+import com.paideia.tesoreria.services.GeneralService;
 import com.vi.locator.ComboLocator;
 import com.vi.usuarios.controller.SessionController;
 import com.vi.usuarios.dominio.Users;
@@ -38,8 +39,9 @@ public class DetraController {
     DetraService service;
     @EJB
     EmpresaService eService;
-    
-    private ComboLocator locator;
+    @EJB
+    GeneralService gService;
+   
 
     String nombreArchivo;
     
@@ -47,7 +49,7 @@ public class DetraController {
     private Empresa empresa;
     
     
-    private List<Detraccion> comprobantes = new ArrayList<Detraccion>();
+    private List<Detraccion> comprobantes;
     
 
     //Para permitir la descarga de archivos
@@ -55,11 +57,15 @@ public class DetraController {
     private StreamedContent file;
     private boolean renderDownload = false;
     
+    //Para cargar los servicios
+    private String codigo;
+    private String descripcion;
+    
     @PostConstruct
     public void init(){
-        locator = ComboLocator.getInstance();
         usr = ((SessionController)FacesUtil.getManagedBean("#{sessionController}")).getUsuario();
         empresa = eService.findEmpresaByLicencia(usr.getLicencia().getNoLicencia());
+        comprobantes = new ArrayList<Detraccion>();
     }
     
      public void cargarArchivoEmpresa(FileUploadEvent event) {
@@ -67,7 +73,7 @@ public class DetraController {
              rutaArchivo = service.generarDetracciones(event.getFile().getInputstream(), event.getFile().getFileName(), empresa);
              renderDownload = true;
          } catch (Exception e) {
-             FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error:  "+e.getMessage());
              e.printStackTrace();
          }
     }  
@@ -76,6 +82,8 @@ public class DetraController {
          try {
              //Temporalmente se utiliza sólo para cargar numeros de cuenta de banco de la nación
              service.cargarCuentas(event.getFile().getInputstream(), event.getFile().getFileName(), usr.getLicencia().getNoLicencia());
+             FacesUtil.restartBean("detraController");
+             FacesUtil.addMessage(FacesUtil.INFO, "Archivo Cargado con Exito! ");
          } catch (Exception e) {
              FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
              e.printStackTrace();
@@ -85,11 +93,23 @@ public class DetraController {
     public void cargarComprobantes(FileUploadEvent event) {
          try {
              comprobantes = service.cargarComprobantes(event.getFile().getInputstream(), event.getFile().getFileName());
+             FacesUtil.addMessage(FacesUtil.INFO, "Comprobantes cargados con exito ");
          } catch (Exception e) {
              FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
              e.printStackTrace();
          }
     } 
+    
+    public String cargarServicio(){
+         try {
+             gService.cargarServicio(codigo, descripcion);
+             FacesUtil.addMessage(FacesUtil.INFO, "Servicio Guardado con Exito!");
+         } catch (Exception e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error: Puede que ya exista el servicio "+e.getMessage());
+             e.printStackTrace();
+         }
+         return null;
+    }
      
      
     public void descargar(ActionEvent evt)throws Exception{
@@ -172,6 +192,34 @@ public class DetraController {
      */
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
+    }
+
+    /**
+     * @return the codigo
+     */
+    public String getCodigo() {
+        return codigo;
+    }
+
+    /**
+     * @param codigo the codigo to set
+     */
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    /**
+     * @return the descripcion
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    /**
+     * @param descripcion the descripcion to set
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
     
     

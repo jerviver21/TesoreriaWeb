@@ -79,7 +79,7 @@ public class UsuariosController {
             usuario.setPwd(SpringUtils.getPasswordEncoder().encodePassword(usuario.getPwd(), null));
             usuario.setLicencia(usrAutenticado.getLicencia());
             usersServices.edit(getUsuario());
-            setUsuarios(usersServices.findAll());
+            setUsuarios(usersServices.findUsersByLicencia(usrAutenticado.getLicencia()));
             FacesUtil.addMessage(FacesUtil.INFO, "Usuario guardado con exito");
         }catch (LlaveDuplicadaException e){
             FacesUtil.addMessage(FacesUtil.ERROR, e.getMessage());

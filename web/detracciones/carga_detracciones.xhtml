@@ -13,11 +13,13 @@
             <ui:define name="contenido">
                 <div style="height: 10000px">
                     <h:form>  
-                        <p:growl id="messages" life="20000"/> 
+                        <p:messages id="messages"/> 
                         
-                        Advertencia!
+                        <h:outputLabel value="Advertencia!" style="color: blue"/>
                         <br/>
-                        Para que al cargar los comprobantes se puedan enlazar no modifique el nombre del archivo!
+                        <h:outputLabel value="No modifique el nombre del archivo manualmente!" style="color: blue"/>
+                        
+                        <br/>
                         <br/>
                         
                         <h:outputLabel value="Consecutivo del Lote:"/>

@@ -15,9 +15,11 @@
                 <h:form id="formId" prependId="false">
                     <p:growl id="msgs" life="15000"/>
                     
-                    <p:outputLabel value="Cargue archivo CSV con rucs de proveedores:"/>
-                    <p:fileUpload fileUploadListener="#{masivoController.cargar}" mode="advanced" dragDropSupport="false"  
-                                       multiple="false" update="@form" sizeLimit="500000" fileLimit="1" allowTypes="/(\.|\/)(txt|csv)$/" />  
+                    <p:outputLabel value="Cargue el archivo de detracciones aprobado en SUNAT:"/>
+                    <p:fileUpload fileUploadListener="#{detraController.cargarArchDetracciones}" mode="advanced" 
+                                  dragDropSupport="false"  
+                                       multiple="false" update="@form" sizeLimit="500000" 
+                                       fileLimit="1" allowTypes="/(\.|\/)(txt|csv)$/" />  
                         
                 </h:form>
                 </div>

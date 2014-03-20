@@ -1,0 +1,54 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     >
+    <f:view>
+        <ui:composition template="../#{applicationController.plan3}">
+            <ui:define name="contenido">
+               <h:form id="form" prependId="false">
+                   <p:growl id="msgs" />  
+                    <p:panelGrid style="margin-top:20px">
+                        <f:facet name="header">  
+                            <p:row>  
+                                <p:column colspan="4">Ingrese Información</p:column>  
+                            </p:row>  
+                        </f:facet>  
+                        <p:row>
+                            <p:column><h:outputLabel  value="Código de Servicio" /></p:column>
+                            <p:column>
+                                <p:inputText size="40" id="cod" value="#{detraController.codigo}" 
+                                             validatorMessage="Digite los 3 digitos del  código de servicio, rellene  con ceros a la izquierda">
+                                    <f:validateRegex pattern="\s*\d{3}\s*"/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="cod"/></p:column>
+                            <p:column><p:watermark value="Cod. Servicio: ej. 001" for="cod"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="Descripcion (Igual como está en el Excel):" /></p:column>
+                            <p:column>
+                                <p:inputText size="40" id="desc" value="#{detraController.descripcion}"/>
+                            </p:column>
+                            <p:column><p:message for="desc"/></p:column>
+                            <p:column><p:watermark value="Desc del servicio. ej: Madera" for="desc"/></p:column>
+                        </p:row>
+                        <f:facet name="footer">
+                            <p:row>  
+                                <p:column colspan="4"><p:commandButton value="Guardar" action="#{detraController.cargarServicio}" ajax="false"/></p:column>  
+                            </p:row> 
+                        </f:facet>
+                    </p:panelGrid>
+                    <br/>
+
+                </h:form>
+
+                
+            </ui:define>
+        </ui:composition>
+    </f:view>
+
+</html>

@@ -1,0 +1,57 @@
+
+<html  xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+     >
+    <f:view>
+        <ui:composition template="../#{applicationController.plan3}">
+            <ui:define name="contenido">
+               <h:form id="form" prependId="false">
+                    <p:messages id="msgs" />  
+                    <p:panelGrid style="margin-top:20px">
+                        <f:facet name="header">  
+                            <p:row>  
+                                <p:column colspan="4">Ingrese Información</p:column>  
+                            </p:row>  
+                        </f:facet>  
+                        <p:row>
+                            <p:column><h:outputLabel  value="RUC" /></p:column>
+                            <p:column>
+                                <p:inputText size="40" id="ruc" value="#{provedorController.ruc}" 
+                                             validatorMessage="El ruc debe contener 11 digitos, sin espacios">
+                                    <f:validateRegex pattern="\s*\d{11}\s*"/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="ruc"/></p:column>
+                            <p:column><p:watermark value="11 digitos sin guiones ni espacios" for="ruc"/></p:column>
+                        </p:row>
+                        <p:row>
+                            <p:column><h:outputLabel  value="Cuenta:" /></p:column>
+                            <p:column>
+                                <p:inputText size="40" id="cuenta" value="#{provedorController.cuentaDetra}" 
+                                             validatorMessage="La cuenta debe contener 11 digitos, sin espacios, ni guiones">
+                                    <f:validateRegex pattern="\s*\d{11}\s*"/>
+                                </p:inputText>
+                            </p:column>
+                            <p:column><p:message for="cuenta"/></p:column>
+                            <p:column><p:watermark value="11 digitos sin guiones ni espacios" for="cuenta"/></p:column>
+                        </p:row>
+                        <f:facet name="footer">
+                            <p:row>  
+                                <p:column colspan="4"><p:commandButton value="Guardar" action="#{provedorController.cargarCuentaDetra}" ajax="false"/></p:column>  
+                            </p:row> 
+                        </f:facet>
+                    </p:panelGrid>
+                    <br/>
+
+                </h:form>
+
+                
+            </ui:define>
+        </ui:composition>
+    </f:view>
+
+</html>
