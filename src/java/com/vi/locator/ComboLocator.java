@@ -22,7 +22,7 @@ public class ComboLocator {
     public static int COMB_ID_CONCEPTO = 6;
     public static int COMB_ID_ACUERDO = 7;
     
-    public static int COMB_ID_ADQ= 6;
+    public static int COMB_ID_ADQ= 8;
     
 
     

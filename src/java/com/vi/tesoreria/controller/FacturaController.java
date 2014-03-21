@@ -11,6 +11,7 @@ import com.vi.usuarios.dominio.Users;
 import com.vi.usuarios.services.UsuariosServicesLocal;
 import com.vi.util.FacesUtil;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
@@ -58,6 +59,7 @@ public class FacturaController {
     private boolean usrTesorero = false;
     private boolean archivoCargado = false;
     Users usr;
+
     
     @PostConstruct
     public void init(){

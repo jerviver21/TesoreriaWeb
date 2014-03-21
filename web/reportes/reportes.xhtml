@@ -12,6 +12,15 @@
         <ui:composition template="../#{applicationController.plan3}">
             <ui:define name="contenido">
                 <div style="height: 450px">
+                <p:ajaxStatus style="width:16px;height:16px;" id="ajaxStatusPanel">  
+                    <f:facet name="start">  
+                        <h:graphicImage value="../images/ajaxloading.gif" />  
+                    </f:facet>  
+
+                    <f:facet name="complete">  
+                        <h:outputText value="" />  
+                    </f:facet>  
+                </p:ajaxStatus>
                 <h:form id="formId" prependId="false">
                     
                     
@@ -33,7 +42,7 @@
                     </p:panel>
 
                     <p:panel>
-                        <p:commandButton value="#{labels.boton_enviar}" action="#{reportesController.generar}" ajax="false"/>
+                        <p:commandButton value="#{labels.boton_enviar}" action="#{reportesController.generar}"  update="@form"/>
                     </p:panel>
 
                     <p:commandLink value="#{labels.descargar}" ajax="false" title="Download" actionListener="#{reportesController.descargar}" rendered="#{reportesController.renderDownload}">

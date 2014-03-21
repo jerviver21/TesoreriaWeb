@@ -77,6 +77,10 @@
         <filter-name>Character Encoding Filter</filter-name>
         <filter-class>com.vi.comun.filters.CharacterEncodingFilter</filter-class>
     </filter>
+    <filter-mapping>
+        <filter-name>Character Encoding Filter</filter-name> 
+        <servlet-name>Faces Servlet</servlet-name>
+    </filter-mapping>
     <welcome-file-list>
         <welcome-file>/general/bienvenida.xhtml</welcome-file>
     </welcome-file-list>

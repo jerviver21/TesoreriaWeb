@@ -2,7 +2,10 @@ package com.vi.usuarios.controller;
 
 import com.paideia.tesoreria.dominio.CuentasProveedor;
 import com.paideia.tesoreria.dominio.Proveedor;
+import com.paideia.tesoreria.to.MasivoTO;
 import com.paideia.tesoreria.usuarios.MasivoService;
+import com.vi.comun.exceptions.LlaveDuplicadaException;
+import com.vi.comun.exceptions.ValidacionException;
 import com.vi.locator.ComboLocator;
 import com.vi.usuarios.dominio.Users;
 import com.vi.util.FacesUtil;
@@ -44,12 +47,23 @@ public class MasivoController {
     
     public void cargar(FileUploadEvent event) {
          try {
-             rutaArchivo = mService.generaUsuarios(event.getFile().getInputstream(), event.getFile().getFileName(), 
+             MasivoTO dto = mService.generaUsuarios(event.getFile().getInputstream(), event.getFile().getFileName(), 
                      usr.getLicencia(), SpringUtils.getPasswordEncoder());
-             renderDownload = true;
-             FacesUtil.addMessage(FacesUtil.INFO, "Descargue el archivo, con las claves de sus proveedores y contactelos para que actualicen su información y carguen sus facturas al sistema ");
-         } catch (Exception e) {
-             FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
+             rutaArchivo = dto.getRuta();
+             if(dto.getNumUsuariosCargados() == 0){
+                 FacesUtil.addMessage(FacesUtil.ERROR, "No se cargo ningún usuario, verifique que haya un ruc por cada fila!");
+             }else{
+                 renderDownload = true;
+                 FacesUtil.addMessage(FacesUtil.INFO, "Cargados: "+dto.getNumUsuariosCargados()+" Usuarios, Por favor,"
+                     + " descargue el archivo, con las claves de sus proveedores y envielas para que "
+                     + "los proveedores puedan cargar sus facturas al sistema ");
+             }
+         } catch (LlaveDuplicadaException e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error: "+e.getMessage());
+         }catch (ValidacionException e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error: "+e.getMessage());
+         }catch (Exception e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error: Envie el siguiente texto: -"+e.getMessage()+"- a jerviver21@gmail.com");
              e.printStackTrace();
          }
     } 

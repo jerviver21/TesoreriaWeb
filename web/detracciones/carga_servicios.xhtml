@@ -22,6 +22,7 @@
                             <p:column>
                                 <p:inputText size="40" id="cod" value="#{detraController.codigo}" 
                                              validatorMessage="Digite los 3 digitos del  código de servicio, rellene  con ceros a la izquierda">
+
                                     <f:validateRegex pattern="\s*\d{3}\s*"/>
                                 </p:inputText>
                             </p:column>
@@ -31,7 +32,9 @@
                         <p:row>
                             <p:column><h:outputLabel  value="Descripcion (Igual como está en el Excel):" /></p:column>
                             <p:column>
-                                <p:inputText size="40" id="desc" value="#{detraController.descripcion}"/>
+                                <p:inputText size="40" id="desc" value="#{detraController.descripcion}">
+                 
+                                </p:inputText>
                             </p:column>
                             <p:column><p:message for="desc"/></p:column>
                             <p:column><p:watermark value="Desc del servicio. ej: Madera" for="desc"/></p:column>

@@ -10,6 +10,8 @@ import com.paideia.tesoreria.dominio.Empresa;
 import com.paideia.tesoreria.services.DetraService;
 import com.paideia.tesoreria.services.EmpresaService;
 import com.paideia.tesoreria.services.GeneralService;
+import com.vi.comun.exceptions.LlaveDuplicadaException;
+import com.vi.comun.exceptions.ValidacionException;
 import com.vi.locator.ComboLocator;
 import com.vi.usuarios.controller.SessionController;
 import com.vi.usuarios.dominio.Users;
@@ -72,6 +74,7 @@ public class DetraController {
          try {
              rutaArchivo = service.generarDetracciones(event.getFile().getInputstream(), event.getFile().getFileName(), empresa);
              renderDownload = true;
+             FacesUtil.addMessage(FacesUtil.INFO, "Info: Archivo generado... Cuando el archivo pase en SUNAT y realice los pagos, carguelo al sistema a través de la opción. Detracciones - Cargar Archivo Aprobado. RECUERDE: Puede cambiar las cuentas manualmente, pero no el nombre del archivo! ");
          } catch (Exception e) {
              FacesUtil.addMessage(FacesUtil.ERROR, "Error:  "+e.getMessage());
              e.printStackTrace();
@@ -80,11 +83,13 @@ public class DetraController {
      
     public void cargarArchDetracciones(FileUploadEvent event) {
          try {
-             //Temporalmente se utiliza sólo para cargar numeros de cuenta de banco de la nación
-             service.cargarCuentas(event.getFile().getInputstream(), event.getFile().getFileName(), usr.getLicencia().getNoLicencia());
+             service.cargarArchivoAprobado(event.getFile().getInputstream(), event.getFile().getFileName(), usr.getLicencia().getNoLicencia());
              FacesUtil.restartBean("detraController");
              FacesUtil.addMessage(FacesUtil.INFO, "Archivo Cargado con Exito! ");
-         } catch (Exception e) {
+         } catch (ValidacionException e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error: "+e.getMessage());
+             e.printStackTrace();
+         }catch (Exception e) {
              FacesUtil.addMessage(FacesUtil.ERROR, "Error: Tome un pantallazo y envie a jerviver21@gmail.com "+e.getMessage());
              e.printStackTrace();
          }
@@ -104,8 +109,11 @@ public class DetraController {
          try {
              gService.cargarServicio(codigo, descripcion);
              FacesUtil.addMessage(FacesUtil.INFO, "Servicio Guardado con Exito!");
-         } catch (Exception e) {
-             FacesUtil.addMessage(FacesUtil.ERROR, "Error: Puede que ya exista el servicio "+e.getMessage());
+         } catch (LlaveDuplicadaException e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error:"+e.getMessage());
+             e.printStackTrace();
+         }catch (Exception e) {
+             FacesUtil.addMessage(FacesUtil.ERROR, "Error: "+e.getMessage());
              e.printStackTrace();
          }
          return null;
@@ -129,6 +137,10 @@ public class DetraController {
          }
         
     } 
+    
+    public void prueba(){
+        System.out.println(codigo+" - "+descripcion);
+    }
     
 
     /**

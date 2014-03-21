@@ -26,7 +26,6 @@
 
                         <p:outputLabel value="Archivos Cargados: #{teleceController.cargados}"/>  
                         <br/>
-                        <p:outputLabel value="Cargue el Archivo:"/>
                         <p:fileUpload fileUploadListener="#{teleceController.cargar}" mode="advanced" dragDropSupport="false"  
                                        multiple="true" update="@form" sizeLimit="500000" fileLimit="30" allowTypes="/(\.|\/)(html?|txt|csv)$/" />  
 

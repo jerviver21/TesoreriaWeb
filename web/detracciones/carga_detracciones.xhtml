@@ -23,7 +23,9 @@
                         <br/>
                         
                         <h:outputLabel value="Consecutivo del Lote:"/>
-                        <h:inputText value="#{detraController.empresa.consecutivo}"/>
+                        <h:inputText value="#{detraController.empresa.consecutivo}">
+                            <p:ajax/>
+                        </h:inputText>
                        
                         
                         <br/>

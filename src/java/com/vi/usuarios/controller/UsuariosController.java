@@ -1,5 +1,7 @@
 package com.vi.usuarios.controller;
 
+import com.paideia.tesoreria.dominio.Proveedor;
+import com.paideia.tesoreria.services.ProveedorService;
 import com.vi.util.FacesUtil;
 import com.vi.util.SpringUtils;
 import com.vi.comun.exceptions.LlaveDuplicadaException;
@@ -38,6 +40,9 @@ public class UsuariosController {
     UsuariosServicesLocal usersServices;
     @EJB
     GruposServicesLocal gruposServices;
+    
+    @EJB
+    ProveedorService pService;
     
     //Usuario Autenticado
     Users usrAutenticado;
@@ -78,6 +83,15 @@ public class UsuariosController {
             usuario.setEstado(1);
             usuario.setPwd(SpringUtils.getPasswordEncoder().encodePassword(usuario.getPwd(), null));
             usuario.setLicencia(usrAutenticado.getLicencia());
+            
+            if(usuario.getUsr().matches("\\d{3,11}")){
+                Proveedor proveedor = pService.findProveedorByRuc(usuario.getUsr());
+                if(proveedor != null){
+                    proveedor.setInfoActualizada(Boolean.FALSE);
+                    pService.edit(proveedor);
+                }
+            }
+            
             usersServices.edit(getUsuario());
             setUsuarios(usersServices.findUsersByLicencia(usrAutenticado.getLicencia()));
             FacesUtil.addMessage(FacesUtil.INFO, "Usuario guardado con exito");

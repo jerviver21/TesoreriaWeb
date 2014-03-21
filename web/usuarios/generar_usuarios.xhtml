@@ -13,7 +13,7 @@
             <ui:define name="contenido">
                 <div style="height: 450px">
                 <h:form id="formId" prependId="false">
-                    <p:growl id="msgs" life="15000"/>
+                    <p:messages id="msgs"/>
                     
                     <p:outputLabel value="Cargue archivo CSV con rucs de proveedores:"/>
                     <p:fileUpload fileUploadListener="#{masivoController.cargar}" mode="advanced" dragDropSupport="false"  
