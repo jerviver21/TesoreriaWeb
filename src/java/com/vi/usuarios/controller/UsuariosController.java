@@ -53,7 +53,7 @@ public class UsuariosController {
         setUsuario(new Users());
         usuario.setPwd("");
         locator = ComboLocator.getInstance();
-        setGrupos(gruposServices.findAll());
+        setGrupos(gruposServices.findByLicencia(usrAutenticado.getLicencia()));
         if(usuarios == null){
             setUsuarios(usersServices.findUsersByLicencia(usrAutenticado.getLicencia()));
         }

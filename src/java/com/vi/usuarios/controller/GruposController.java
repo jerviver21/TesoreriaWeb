@@ -5,6 +5,7 @@ import com.vi.comun.exceptions.LlaveDuplicadaException;
 import com.vi.comun.util.Log;
 import com.vi.usuarios.dominio.Groups;
 import com.vi.usuarios.dominio.Rol;
+import com.vi.usuarios.dominio.Users;
 import com.vi.usuarios.services.GruposServicesLocal;
 import com.vi.usuarios.services.RolesServicesLocal;
 import java.util.ArrayList;
@@ -32,12 +33,15 @@ public class GruposController {
     @EJB
     RolesServicesLocal rolesServices;
 
+    Users sesion;
 
     @PostConstruct
     public void init(){
+        sesion = ((SessionController)FacesUtil.getManagedBean("#{sessionController}")).getUsuario();
+        
         grupo = new Groups();
-        setGrupos(groupsService.findAll());
-        setRoles(rolesServices.findAll());
+        setGrupos(groupsService.findByLicencia(sesion.getLicencia()));
+        setRoles(rolesServices.findByLicencia(sesion.getLicencia()));
         if(!roles.isEmpty()){
             setGridColumnasRoles((int) Math.sqrt(roles.size()));
             setGridFilasRoles(roles.size());    
