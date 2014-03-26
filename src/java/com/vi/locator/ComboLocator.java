@@ -33,8 +33,8 @@ public class ComboLocator {
     
     private ComboLocator()throws Exception{
         try {
-            InitialContext contexto = new InitialContext();
-            commonFacade = (CommonServicesLocal)contexto.lookup(Utils.getPropiedad("jndi_common"));
+            /*InitialContext contexto = new InitialContext();
+            commonFacade = (CommonServicesLocal)contexto.lookup(Utils.getPropiedad("jndi_common"));*/
             cache = Collections.synchronizedMap(new HashMap());
         } catch (Exception e) {
             System.err.println(e);
@@ -54,6 +54,9 @@ public class ComboLocator {
         return instance;
     }
     
+    public void setCommonFacade(CommonServicesLocal servicio){
+        commonFacade = servicio;
+    }
 
     public Map getDataForCombo(int TABLA){
         Map resultado = (Map)getCache().get(TABLA);
