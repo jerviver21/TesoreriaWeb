@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:p="http://primefaces.org/ui"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:ui="http://java.sun.com/jsf/facelets"
+     xmlns:sec="http://www.springframework.org/security/facelets/tags">
+<f:view>
+<ui:composition template="../#{applicationController.plan3}">
+    <ui:define name="contenido">
+        <div style="height: 600px; overflow-y: scroll">
+        <h:form id="form" >
+            <br/>
+            <span class="titulo">Información de Facturas!</span>
+            <br/>
+            <sec:ifAnyGranted roles="TESORERO">
+                <p:panelGrid columns="3">
+                    <p:outputLabel value="RUC:"/>
+                    <p:inputText value="#{consultaPagosController.ruc}"/>
+                    <p:commandButton action="#{consultaPagosController.consultarRuc}" value="Buscar" update="@form"/>
+                </p:panelGrid>
+            </sec:ifAnyGranted>
+            <br/>
+            <p:panel header="Facturas:">
+                    <p:dataTable value="#{consultaPagosController.pagos}" var="pago" paginator="true"
+                                 rows="20"
+                                 paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                 paginatorPosition="top"
+                                 paginatorAlwaysVisible="false">
+                        <p:column headerText="RUC">
+                            <h:outputText value="#{pago.proveedor.ruc}"/>
+                        </p:column>
+                        <p:column headerText="Razon Social">
+                            <h:outputText value="#{pago.proveedor.razonSocial}"/>
+                        </p:column>
+                        <p:column headerText="Monto:" filterBy="#{pago.monto}" id="monto">
+                            <h:outputText value="#{pago.monto}"/>
+                        </p:column>
+                        <p:column headerText="Moneda:">
+                            <h:outputText value="#{pago.monDes}"/>
+                        </p:column>
+                        <p:column headerText="Estado" filterBy="#{pago.estado.nombre}" id="estado" >
+                            <h:outputText value="#{pago.estado.nombre}"/>
+                        </p:column>
+                        <p:column headerText="No Factura">
+                            <h:outputText value="#{pago.noFactura}"/>
+                        </p:column>
+                        <p:column headerText="Pago">
+                            <p:commandLink action="#{consultaPagosController.navPago(pago)}" value="Consultar Pago" 
+                                           ajax="false"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+        </h:form>
+        </div>
+    </ui:define>
+  </ui:composition>
+</f:view>
+</html>
+
