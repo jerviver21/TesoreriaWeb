@@ -4,13 +4,16 @@
  */
 package com.vi.tesoreria.controller;
 
+import com.paideia.tesoreria.dominio.InconsistenciaPlanilla;
+import com.paideia.tesoreria.dominio.Semt;
 import com.paideia.tesoreria.services.PlanillaService;
-import com.paideia.tesoreria.to.SemtTO;
+import com.paideia.tesoreria.to.PlanillaTO;
 import com.vi.comun.exceptions.ValidacionException;
 import com.vi.usuarios.controller.SessionController;
 import com.vi.usuarios.dominio.Users;
 import com.vi.util.FacesUtil;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
@@ -34,18 +37,25 @@ public class ValidaCuentaController {
     PlanillaService service;
     
     private String cargados = "";
-    List<SemtTO> semts;
+    PlanillaTO to;
     
     //Para permitir la descarga de archivos
     private String rutaArchivo;
     private StreamedContent file;
     private boolean renderDownload = false;
     
+    //Parametros
+    private Double tasaCambio = 2.8;
+    private List<Semt> semts = new ArrayList();
+    private List<InconsistenciaPlanilla> inconsistencias = new ArrayList();
     
-     public void cargar(FileUploadEvent event) {
+    
+    public void cargar(FileUploadEvent event) {
          try {
-             Users usr = ((SessionController)FacesUtil.getManagedBean("#{sessionController}")).getUsuario();
-             semts = service.cargar(event.getFile().getInputstream(), event.getFile().getFileName(), usr.getLicencia().getNoLicencia());
+             //System.out.println("---> "+service+" - "+event.getFile());
+             to = service.cargar(event.getFile().getInputstream(), event.getFile().getFileName(), tasaCambio);
+             getSemts().addAll(to.getSemts());
+             getInconsistencias().addAll(to.getPlanillas());
              String nombreArchivo = event.getFile().getFileName();
              cargados += nombreArchivo==null?"":nombreArchivo+"  **  ";
          } catch (ValidacionException e) {
@@ -87,6 +97,12 @@ public class ValidaCuentaController {
          }
         
     } 
+    
+    public String reiniciarInconsistencias(){
+        semts = new ArrayList();
+        inconsistencias = new ArrayList();
+        return null;
+    }
 
 
     /**
@@ -129,6 +145,48 @@ public class ValidaCuentaController {
      */
     public void setRenderDownload(boolean renderDownload) {
         this.renderDownload = renderDownload;
+    }
+
+    /**
+     * @return the tasaCambio
+     */
+    public Double getTasaCambio() {
+        return tasaCambio;
+    }
+
+    /**
+     * @param tasaCambio the tasaCambio to set
+     */
+    public void setTasaCambio(Double tasaCambio) {
+        this.tasaCambio = tasaCambio;
+    }
+
+    /**
+     * @return the semts
+     */
+    public List<Semt> getSemts() {
+        return semts;
+    }
+
+    /**
+     * @param semts the semts to set
+     */
+    public void setSemts(List<Semt> semts) {
+        this.semts = semts;
+    }
+
+    /**
+     * @return the inconsistencias
+     */
+    public List<InconsistenciaPlanilla> getInconsistencias() {
+        return inconsistencias;
+    }
+
+    /**
+     * @param inconsistencias the inconsistencias to set
+     */
+    public void setInconsistencias(List<InconsistenciaPlanilla> inconsistencias) {
+        this.inconsistencias = inconsistencias;
     }
 
    

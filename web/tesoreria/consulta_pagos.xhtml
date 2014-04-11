@@ -10,7 +10,7 @@
         <div style="height: 600px; overflow-y: scroll">
         <h:form id="form" >
             <br/>
-            <span class="titulo">Información de Facturas!</span>
+            <span class="titulo">Información de Pagos!</span>
             <br/>
             <sec:ifAnyGranted roles="TESORERO">
                 <p:panelGrid columns="3">
@@ -20,7 +20,7 @@
                 </p:panelGrid>
             </sec:ifAnyGranted>
             <br/>
-            <p:panel header="Facturas:">
+            <p:panel header="Pagos:">
                     <p:dataTable value="#{consultaPagosController.pagos}" var="pago" paginator="true"
                                  rows="20"
                                  paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"

@@ -11,7 +11,7 @@
 
         <ui:composition template="../#{applicationController.plan3}">
             <ui:define name="contenido">
-                <div style="height: 1000px">
+                <div style="height: 2000px; overflow-y: scroll">
                     <p:ajaxStatus style="width:16px;height:16px;" id="ajaxStatusPanel">  
                         <f:facet name="start">  
                             <h:graphicImage value="../images/ajaxloading.gif" />  
@@ -38,6 +38,28 @@
                         <p:commandLink value="#{labels.descargar}" ajax="false" title="Download" actionListener="#{validaCuentaController.descargar}" rendered="#{validaCuentaController.renderDownload}">
                               <p:fileDownload value="#{validaCuentaController.file}"/>
                         </p:commandLink>
+                        
+                        <br/>
+                        <p:outputLabel value="Numero de inconsistencias: #{validaCuentaController.inconsistencias.size()}"/>
+                        <p:spacer width="20"/>
+                        <p:commandLink value="Reiniciar" action="#{validaCuentaController.reiniciarInconsistencias}" update="@form"/>
+                        <br/>
+                        <p:dataTable value="#{validaCuentaController.inconsistencias}" var="item" 
+                                paginator="true"
+                                paginatorAlwaysVisible="false"
+                                rows="50"
+                                paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                                paginatorPosition="top">
+                            <p:column headerText="Fila:">
+                                <h:outputText value="#{item.noFila}"/>
+                            </p:column>
+                            <p:column headerText="Archivo:">
+                                <h:outputText value="#{item.nombreArchivo}"/>
+                            </p:column>
+                            <p:column headerText="Descripción">
+                                <h:outputText value="#{item.descripcionInconsistencia}"/>
+                            </p:column>
+                        </p:dataTable>
                           
                      </h:form>  
                 </div>

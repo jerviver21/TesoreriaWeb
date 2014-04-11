@@ -60,7 +60,7 @@ public class ConsultaPagosController {
     
     public String navPago(RegistroPago pago){
         this.pago = pago;
-        return "/tesoreria/consulta_pago.xhtml";
+        return "/tesoreria/consulta_pago1.xhtml";
     }
     
     public String navDetraccion(){
